@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminController">
+   <children>
+      <HBox prefHeight="500.0" prefWidth="750.0">
+         <children>
+            <VBox prefHeight="500.0" prefWidth="750.0">
+               <children>
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0">
+                     <children>
+                        <Separator layoutX="14.0" layoutY="68.0" prefHeight="4.0" prefWidth="732.0" />
+                        <Text fill="#f57c00" layoutX="21.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" wrappingWidth="228.1962890625">
+                           <font>
+                              <Font name="Tahoma" size="29.0" />
+                           </font>
+                        </Text>
+                        <Button layoutX="296.0" layoutY="435.0" mnemonicParsing="false" style="-fx-background-color: #2196F3;" text="Update Profile" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <MenuButton layoutX="581.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-color: #2196F3;" text="Admin Panel " textFill="WHITE">
+                          <items>
+                            <MenuItem mnemonicParsing="false" text="Customer Panel" />
+                            <MenuItem mnemonicParsing="false" text="Warehouse Manager Panel" />
+                              <MenuItem mnemonicParsing="false" text="Warehouse Employee Panel" />
+                              <MenuItem mnemonicParsing="false" text="Transporter" />
+                          </items>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </MenuButton>
+                        <Button layoutX="456.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-color: #2196F3;" text="Add Admin" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="283.0" layoutY="19.0" mnemonicParsing="false" onAction="#setAdminEditProfileClick" style="-fx-background-color: #2196F3;" text="Edit Admin Profile" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="64.0" layoutY="435.0" mnemonicParsing="false" onAction="#setAdminCancelButtonClick" style="-fx-background-color: #d33030;" text="Cancel" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <AnchorPane layoutX="12.0" layoutY="81.0" prefHeight="332.0" prefWidth="394.0">
+                           <children>
+                              <GridPane layoutX="58.0" layoutY="89.0" prefHeight="252.0" prefWidth="332.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="33.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="AdmintfFirstName" disable="true" GridPane.columnIndex="1" />
+                                    <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="AdmintfLastName" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="AdmintfID" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" GridPane.rowIndex="3">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="AdmintfEmailID" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="User name" GridPane.rowIndex="5">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="AdmintfUserName" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="City" GridPane.rowIndex="6">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="AdmintfCity" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                    <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" GridPane.rowIndex="4">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <PasswordField fx:id="AdminpfPassword" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                 </children>
+                              </GridPane>
+                              <Text fill="#f57c00" layoutX="14.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Information: ">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
