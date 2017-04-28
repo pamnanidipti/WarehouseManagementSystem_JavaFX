@@ -29,7 +29,7 @@
                               <Font name="Tahoma" size="29.0" />
                            </font>
                         </Text>
-                        <Button layoutX="296.0" layoutY="435.0" mnemonicParsing="false" style="-fx-background-color: #2196F3;" text="Update Profile" textFill="WHITE">
+                        <Button fx:id="updateProfileButton" disable="true" layoutX="296.0" layoutY="435.0" mnemonicParsing="false" onAction="#setAdminUpdateProfileClick" style="-fx-background-color: #2196F3;" text="Update Profile" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>

@@ -1,26 +1,26 @@
 package controllers;
 
 
-import models.*;
-import javafx.event.Event;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-import javafx.util.Duration;
-import tray.notification.NotificationType;
-import tray.notification.TrayNotification;
-
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javafx.application.Platform;
+import javafx.scene.Node;
+
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.Event;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+import models.Connector;
 
 
 /**
@@ -39,7 +39,9 @@ public class AdminController {
 	@FXML
 	    private TextField AdmintfID;
 	 @FXML
-	    private TextField AdmintfEmailID;    
+	    private TextField AdmintfEmailID; 
+         @FXML
+         private Button updateProfileButton;
     @FXML
     private PasswordField AdminpfPassword;
     @FXML
@@ -54,7 +56,9 @@ public class AdminController {
     	AdmintfEmailID.setDisable(true);
     	AdminpfPassword.setDisable(true);
     	AdmintfUserName.setDisable(true);
-    	AdmintfCity.setDisable(true);}
+    	AdmintfCity.setDisable(true);
+        updateProfileButton.setDisable(true);
+    }
     
     private void setAllFieldEnableOnClick(){
     	AdmintfFirstName.setDisable(false);
@@ -64,7 +68,7 @@ public class AdminController {
     	AdminpfPassword.setDisable(false);
     	AdmintfUserName.setDisable(false);
     	AdmintfCity.setDisable(false);
-       
+       updateProfileButton.setDisable(false);
     }
     
     private void setAllFieldClearOnClick(){
@@ -98,6 +102,7 @@ public class AdminController {
     	setAllFieldEnableOnClick();
         String sqlQuery = "select * FROM admin where adminUserName ='"+sessionUser+"'; ";
         try {
+            
             connection = conn.connect();
             statement = connection.createStatement();
             rslt = statement.executeQuery(sqlQuery);
@@ -118,7 +123,13 @@ public class AdminController {
     }
     @FXML
     private void setAdminUpdateProfileClick(Event event){
-        
+        //String sqlQuery = "select * FROM admin where adminUserName ='"+sessionUser+"'; ";
+        try {
+            
+          
+        } catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
