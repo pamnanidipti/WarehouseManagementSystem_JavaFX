@@ -20,6 +20,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import models.Connector;
 
@@ -104,11 +105,24 @@ public class AddAdminController {
                 }
                 
                 addAdmintfID.setText(String.valueOf(count+1));
+                if(addAdmintfFirstName.getText().equals("") || addAdmintfLastName.getText().equals("") || addAdmintfEmailID.getText().equals("")
+                        || addAdminpfPassword.getText().equals("") || addAdmintfUserName.getText().equals("") || addAdmintfCity.getText().equals("")){
+                    //save.setDisable(true);
+                    addAdminSaveLabel.setTextFill(Color.web("red"));
+                    addAdminSaveLabel.setText("Please enter all values!");
+                    
+                    return;
+                }
+                else{
+                    //save.setDisable(false);
         String sqlQuery = "insert into admin (adminId,adminFirstName,adminLastName,adminUserName,adminPassword,adminEmailId,adminCity )"+"values ("+addAdmintfID.getText() +" , '"+addAdmintfFirstName.getText()+"','"+addAdmintfLastName.getText()+"','"+addAdmintfUserName.getText()+"','"+addAdminpfPassword.getText()+"','"+addAdmintfEmailID.getText()+"','"+addAdmintfCity.getText()+"')";
-        System.out.println(sqlQuery);
+        //System.out.println(sqlQuery);
         statement.executeUpdate(sqlQuery);
+        addAdminSaveLabel.setTextFill(Color.web("green"));
         addAdminSaveLabel.setText("Admin Saved to Database");
-        
+        setAllFieldClearOnClick();
+        setAllFieldDisableOnClick();
+                }
         connection.close();
         statement.close();
         resultSet.close();
@@ -135,6 +149,7 @@ public class AddAdminController {
     private void setaddAdminCancelButton(Event event){
     	setAllFieldDisableOnClick();
         setAllFieldClearOnClick();
+        addAdminSaveLabel.setText("");
     }
     /*@FXML
     private void setbuttonClick(Event event) throws IOException {

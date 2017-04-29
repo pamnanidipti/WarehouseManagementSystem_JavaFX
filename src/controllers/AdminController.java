@@ -18,6 +18,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import models.Connector;
 
@@ -132,7 +133,15 @@ public class AdminController {
             if (isEdit) {
                 connection = conn.connect();
                 statement = connection.createStatement();
-
+                
+                if(AdmintfFirstName.getText().equals("") || AdmintfLastName.getText().equals("") || AdmintfEmailID.getText().equals("")
+                        || AdminpfPassword.getText().equals("") || AdmintfUserName.getText().equals("") || AdmintfCity.getText().equals("")){
+                    //save.setDisable(true);
+                    //addAdminSaveLabel.setTextFill(Color.web("red"));
+                    //addAdminSaveLabel.setText("Please enter all values!");
+                    
+                    return;
+                }
                
                 // System.out.println("Count: "+count);
                 statement.executeUpdate("update admin set adminFirstName ='" + AdmintfFirstName.getText() + "',adminLastName='" + AdmintfLastName.getText() + "',adminUserName ='" + AdmintfUserName.getText() + "',adminPassword ='" + AdminpfPassword.getText() + "',adminEmailId ='" + AdmintfEmailID.getText() + "',adminCity='" + AdmintfCity.getText() + "' where adminId=" + AdmintfID.getText() + ";");

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.PasswordField?>
@@ -29,12 +30,12 @@
                               <Font name="Tahoma" size="29.0" />
                            </font>
                         </Text>
-                        <Button fx:id="updateProfileButton" disable="true" layoutX="296.0" layoutY="435.0" mnemonicParsing="false" onAction="#setAdminUpdateProfileClick" style="-fx-background-color: #2196F3;" text="Update Profile" textFill="WHITE">
+                        <Button fx:id="updateProfileButton" disable="true" layoutX="291.0" layoutY="451.0" mnemonicParsing="false" onAction="#setAdminUpdateProfileClick" style="-fx-background-color: #2196F3;" text="Update Profile" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <MenuButton layoutX="581.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-color: #2196F3;" text="Admin Panel " textFill="WHITE">
+                        <MenuButton layoutX="593.0" layoutY="81.0" mnemonicParsing="false" style="-fx-background-color: #2196F3;" text="Admin Panel " textFill="WHITE">
                           <items>
                             <MenuItem mnemonicParsing="false" text="Customer Panel" />
                             <MenuItem mnemonicParsing="false" text="Warehouse Manager Panel" />
@@ -45,17 +46,17 @@
                               <Font size="15.0" />
                            </font>
                         </MenuButton>
-                        <Button fx:id="AddAdmin" layoutX="456.0" layoutY="19.0" mnemonicParsing="false" onAction="#setAdminAddAdminClick" style="-fx-background-color: #2196F3;" text="Add Admin" textFill="WHITE">
+                        <Button fx:id="AddAdmin" layoutX="476.0" layoutY="21.0" mnemonicParsing="false" onAction="#setAdminAddAdminClick" style="-fx-background-color: #2196F3;" text="Add Admin" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="283.0" layoutY="19.0" mnemonicParsing="false" onAction="#setAdminEditProfileClick" style="-fx-background-color: #2196F3;" text="Edit Admin Profile" textFill="WHITE">
+                        <Button layoutX="317.0" layoutY="21.0" mnemonicParsing="false" onAction="#setAdminEditProfileClick" style="-fx-background-color: #2196F3;" text="Edit Admin Profile" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="64.0" layoutY="435.0" mnemonicParsing="false" onAction="#setAdminCancelButtonClick" style="-fx-background-color: #d33030;" text="Cancel" textFill="WHITE">
+                        <Button layoutX="58.0" layoutY="451.0" mnemonicParsing="false" onAction="#setAdminCancelButtonClick" style="-fx-background-color: #d33030;" text="Cancel" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -128,6 +129,12 @@
                               </Text>
                            </children>
                         </AnchorPane>
+                        <Button fx:id="logout" layoutX="593.0" layoutY="21.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #d33030;" text="Logout" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Label fx:id="adminLabel" layoutX="120.0" layoutY="422.0" prefHeight="25.0" prefWidth="186.0" />
                      </children>
                   </AnchorPane>
                </children>
