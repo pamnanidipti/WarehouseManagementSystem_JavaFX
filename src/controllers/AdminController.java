@@ -32,6 +32,9 @@ import models.Connector;
 
 public class AdminController {
 	  public static String sessionUser = null;
+          public boolean isEdit;
+          private static int count;
+          
 	 @FXML
 	    private TextField AdmintfFirstName;
 	 @FXML
@@ -97,9 +100,11 @@ public class AdminController {
     private Connection connection;
 	private Statement statement;
 	private ResultSet rslt;
+        
     @FXML
     private void setAdminEditProfileClick(Event event){
     	setAllFieldEnableOnClick();
+        isEdit = true;
         String sqlQuery = "select * FROM admin where adminUserName ='"+sessionUser+"'; ";
         try {
             
@@ -123,9 +128,19 @@ public class AdminController {
     }
     @FXML
     private void setAdminUpdateProfileClick(Event event){
-        //String sqlQuery = "select * FROM admin where adminUserName ='"+sessionUser+"'; ";
+        
         try {
+            if(isEdit){
+               connection = conn.connect();
+            statement = connection.createStatement();
             
+            ResultSet resultSet = statement.executeQuery("select count(*) from admin");
+            while (resultSet.next()) {
+            count = resultSet.getInt(1);
+ }
+               // System.out.println("Count: "+count);
+            //statement.executeUpdate("insert into admin ")
+            }
           
         } catch(Exception e){
             e.printStackTrace();
