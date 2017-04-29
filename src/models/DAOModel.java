@@ -24,7 +24,7 @@ public class DAOModel {
         try {
 
             Statement st = conn.createStatement();
-            String sql = "CREATE TABLE admin (adminId Numeric not null, adminFirstName VARCHAR(255), adminLastName VARCHAR(255),adminUserName VARCHAR(255), adminPassword VARCHAR(255),adminEmailId VARCHAR(255),adminCity VARCHAR(255), PRIMARY KEY(adminId))";
+            String sql = "CREATE TABLE admin (adminId int NOT NULL AUTO_INCREMENT, adminFirstName VARCHAR(255), adminLastName VARCHAR(255),adminUserName VARCHAR(255), adminPassword VARCHAR(255),adminEmailId VARCHAR(255),adminCity VARCHAR(255), PRIMARY KEY(adminId))";
             st.executeUpdate(sql);
             System.out.println("Created table in given database...");
         } catch (Exception e) {
