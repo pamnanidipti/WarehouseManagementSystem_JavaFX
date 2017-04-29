@@ -154,7 +154,7 @@
                            </children>
                         </AnchorPane>
                         <Separator layoutX="372.0" layoutY="80.0" orientation="VERTICAL" prefHeight="404.0" prefWidth="15.0" />
-                        <Button fx:id="logout" layoutX="608.0" layoutY="25.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #d33030;" text="Logout" textFill="WHITE">
+                        <Button fx:id="logout" layoutX="608.0" layoutY="25.0" mnemonicParsing="false" onAction="#setLogoutButtonClick" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #d33030;" text="Logout" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>

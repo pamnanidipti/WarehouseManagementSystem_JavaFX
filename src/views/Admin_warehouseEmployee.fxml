@@ -129,7 +129,7 @@
                               </Button>
                            </children>
                         </AnchorPane>
-                        <Button fx:id="logout" layoutX="593.0" layoutY="21.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #d33030;" text="Logout" textFill="WHITE">
+                        <Button fx:id="logout" layoutX="593.0" layoutY="21.0" mnemonicParsing="false" onAction="#setLogoutButtonClick" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #d33030;" text="Logout" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>

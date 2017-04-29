@@ -43,6 +43,7 @@ public class LoginController {
     private ChoiceBox cbUser;
 
     private static String sessionUser = null;
+    private static Node adminNode;
    @FXML
     private void loginButtonClick(Event event) throws SQLException{ 
        if(isAllFieldFillup()){
@@ -62,11 +63,14 @@ public class LoginController {
                             Parent adminParent = FXMLLoader.load(getClass().getResource("/views/Admin.fxml"));
                             Scene adminScene = new Scene(adminParent);
                             Stage adminStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                            //adminNode = (Node) event.getSource();
+                            
                             adminStage.hide();
                             adminStage.setScene(adminScene);
                             adminStage.setTitle("Admin Panel");
                             adminStage.show();
                             AdminController controller = loader.<AdminController>getController();
+                            //controller.adminNode = this.adminNode;
                             controller.sessionUser = this.sessionUser;
 
                         } catch (IOException e) {

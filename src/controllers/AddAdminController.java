@@ -157,6 +157,20 @@ public class AddAdminController {
             e.printStackTrace();
         }
     }*/
+    
+    @FXML
+    private void setLogoutButtonClick(Event event) throws IOException{
+        
+        FXMLLoader fxload = new FXMLLoader();
+        fxload.setLocation(getClass().getResource("/application/Login.fxml"));
+        fxload.load();
+        Parent parent = fxload.getRoot();
+        ((Node)event.getSource()).getScene().getWindow().hide();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(parent));
+        stage.setTitle("Login Page - Warehouse Management System");
+        stage.show();
+    }
 
     @FXML
     private void setaddAdminCancelButton(Event event){
