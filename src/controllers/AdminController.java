@@ -1,6 +1,7 @@
 package controllers;
 
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -152,5 +153,28 @@ public class AdminController {
     	setAllFieldDisableOnClick();
         setAllFieldClearOnClick();
     }
+    /*@FXML
+    private void setAdminCoursePanelClick(Event event) throws IOException {
 
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/admin/Course.fxml"));
+        loader.load();
+        Parent p = loader.getRoot();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(p));
+        stage.setTitle("Course Panel");
+        stage.show();
+    }*/
+    @FXML
+    private void setAdminAddAdminClick(Event event) throws IOException {
+
+        FXMLLoader fxload= new FXMLLoader();
+        fxload.setLocation(getClass().getResource("/views/AddAdmin.fxml"));
+        fxload.load();
+        Parent parent = fxload.getRoot();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(parent));
+        stage.setTitle("Add New Admin Screen");
+        stage.show();
+    }
 }
