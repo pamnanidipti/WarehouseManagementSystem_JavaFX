@@ -33,6 +33,8 @@ import models.Connector;
 
 public class AddAdminController {
 	  public static String sessionUser = null;
+          private static int count;
+          
 	 @FXML
 	    private TextField addAdmintfFirstName;
 	 @FXML
@@ -63,7 +65,7 @@ public class AddAdminController {
     private void setAllFieldEnableOnClick(){
     	addAdmintfFirstName.setDisable(false);
     	addAdmintfLastName.setDisable(false);
-    	addAdmintfID.setDisable(false);
+    	//addAdmintfID.setDisable(false);
     	addAdmintfEmailID.setDisable(false);
     	addAdminpfPassword.setDisable(false);
     	addAdmintfUserName.setDisable(false);
@@ -95,10 +97,21 @@ public class AddAdminController {
     		  		
     		connection=conn.connect();
     		statement = connection.createStatement();
+                
+                 ResultSet resultSet = statement.executeQuery("select count(*) from admin");
+                while (resultSet.next()) {
+                    count = resultSet.getInt(1);
+                }
+                
+                addAdmintfID.setText(String.valueOf(count+1));
         String sqlQuery = "insert into admin (adminId,adminFirstName,adminLastName,adminUserName,adminPassword,adminEmailId,adminCity )"+"values ("+addAdmintfID.getText() +" , '"+addAdmintfFirstName.getText()+"','"+addAdmintfLastName.getText()+"','"+addAdmintfUserName.getText()+"','"+addAdminpfPassword.getText()+"','"+addAdmintfEmailID.getText()+"','"+addAdmintfCity.getText()+"')";
         System.out.println(sqlQuery);
         statement.executeUpdate(sqlQuery);
         addAdminSaveLabel.setText("Admin Saved to Database");
+        
+        connection.close();
+        statement.close();
+        resultSet.close();
             
             }catch (SQLException e) {
             	addAdminSaveLabel.setText("Admin Not Saved to Database");
