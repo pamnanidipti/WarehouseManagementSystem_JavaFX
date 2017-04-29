@@ -48,6 +48,8 @@ public class AdminController {
     private TextField AdmintfUserName;
     @FXML
     private TextField AdmintfCity;
+    @FXML
+    private Label adminLabel;
 
     private void setAllFieldDisableOnClick() {
         AdmintfFirstName.setDisable(true);
@@ -137,15 +139,17 @@ public class AdminController {
                 if(AdmintfFirstName.getText().equals("") || AdmintfLastName.getText().equals("") || AdmintfEmailID.getText().equals("")
                         || AdminpfPassword.getText().equals("") || AdmintfUserName.getText().equals("") || AdmintfCity.getText().equals("")){
                     //save.setDisable(true);
-                    //addAdminSaveLabel.setTextFill(Color.web("red"));
-                    //addAdminSaveLabel.setText("Please enter all values!");
+                    adminLabel.setTextFill(Color.web("red"));
+                    adminLabel.setText("Please enter all values!");
                     
                     return;
                 }
                
                 // System.out.println("Count: "+count);
                 statement.executeUpdate("update admin set adminFirstName ='" + AdmintfFirstName.getText() + "',adminLastName='" + AdmintfLastName.getText() + "',adminUserName ='" + AdmintfUserName.getText() + "',adminPassword ='" + AdminpfPassword.getText() + "',adminEmailId ='" + AdmintfEmailID.getText() + "',adminCity='" + AdmintfCity.getText() + "' where adminId=" + AdmintfID.getText() + ";");
-                System.out.println("Your Details have been updated successfully!");
+                //System.out.println("Your Details have been updated successfully!");
+                adminLabel.setTextFill(Color.web("green"));
+                    adminLabel.setText("Details updated successfully!");
                 setAllFieldDisableOnClick();
                 connection.close();
                 statement.close();
@@ -161,6 +165,7 @@ public class AdminController {
     private void setAdminCancelButtonClick(Event event) {
         setAllFieldDisableOnClick();
         setAllFieldClearOnClick();
+        adminLabel.setText("");
     }
     /*@FXML
      private void setAdminCoursePanelClick(Event event) throws IOException {
