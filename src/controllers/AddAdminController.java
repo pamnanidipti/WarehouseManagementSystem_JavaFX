@@ -22,6 +22,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import models.AdminPOJOTable;
 import models.Connector;
 
 
@@ -50,6 +51,18 @@ public class AddAdminController {
     private TextField addAdmintfUserName;
     @FXML
     private TextField addAdmintfCity;
+    
+    @FXML
+    private TableView<AdminPOJOTable> adminDetailsTableView;
+    
+    @FXML
+    TableColumn<AdminPOJOTable,Integer> admindetailsId;
+    @FXML
+    TableColumn<AdminPOJOTable,String> admindetailsFname;
+    @FXML
+    TableColumn<AdminPOJOTable,String> admindetailsLname;
+    @FXML
+    TableColumn<AdminPOJOTable,String> admindetailscity;
     
     @FXML
     private Button save;
@@ -163,5 +176,68 @@ public class AddAdminController {
         stage.setTitle("Course Panel");
         stage.show();
     }*/
-   
+    @FXML
+    void initialize(){
+         assert adminDetailsTableView != null : "fx:id=\"tableview\" was not injected: check your FXML file 'UserMaster.fxml'.";
+    	
+         admindetailsFname.setCellValueFactory(
+            new PropertyValueFactory<AdminPOJOTable,String>("FName"));        
+         admindetailsLname.setCellValueFactory(                
+            new PropertyValueFactory<AdminPOJOTable,String>("LName"));
+        
+         admindetailsId.setCellValueFactory(                
+                new PropertyValueFactory<AdminPOJOTable,Integer>("adminID"));
+        admindetailscity.setCellValueFactory(
+            new PropertyValueFactory<AdminPOJOTable,String>("city"));        
+        
+        
+
+        Connector connector = new Connector();
+       
+    
+        
+        try{
+        	 Connection conn = connector.connect();
+        	   
+            buildData();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private ObservableList<AdminPOJOTable> data;
+
+    public void buildData(){        
+        data = FXCollections.observableArrayList();
+        Statement statement = null;
+        try{      
+            String SQL = "Select adminId,adminFirstName,adminLastName,adminCity from admin Order By UserName";            
+            
+           
+            ResultSet rs  = conn.createStatement().executeQuery(SQL);  
+            
+            while(rs.next()){
+                Usermaster cm = new Usermaster();
+                cm.userId.set(rs.getInt("UserId"));                       
+                //Image img = new Image("tailoring/UserPhoto/User"+cm.getUserId().toString()+".jpg");                
+
+               // ImageView mv = new ImageView();
+                mv.setImage(img);
+                mv.setFitWidth(70);
+                mv.setFitHeight(80);
+                cm.userPhoto.set(mv);
+                cm.userName.set(rs.getString("UserName"));
+                cm.userPassword.set(rs.getString("UserPassword"));
+                cm.userType.set(rs.getString("UserType"));
+                data.add(cm);                  
+            }
+            adminDetailsTableView.setItems(data);
+        }
+        catch(Exception e){
+              e.printStackTrace();
+              System.out.println("Error on Building Data");            
+        }
+    }
+}
 }
