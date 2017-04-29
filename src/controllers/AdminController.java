@@ -187,4 +187,28 @@ public class AdminController {
         stage.setTitle("Add New Admin Screen");
         stage.show();
     }
+    @FXML
+    private void setAdminwarehouseEmployeepanel(Event event) throws IOException {
+
+        FXMLLoader fxload = new FXMLLoader();
+        fxload.setLocation(getClass().getResource("/views/Admin_warehouseEmployee.fxml"));
+        fxload.load();
+        Parent parent = fxload.getRoot();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(parent));
+        stage.setTitle("Add New Admin Screen");
+        stage.show();
+    }
+    @FXML
+    private void setAdminwarehouseManagerpanel(Event event) throws IOException {
+
+        FXMLLoader fxload = new FXMLLoader();
+        fxload.setLocation(getClass().getResource("/views/Admin_warehouseManager.fxml"));
+        fxload.load();
+        Parent parent = fxload.getRoot();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(parent));
+        stage.setTitle("Add New Admin Screen");
+        stage.show();
+    }
 }
