@@ -25,7 +25,7 @@
                   <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0">
                      <children>
                         <Separator layoutX="14.0" layoutY="68.0" prefHeight="4.0" prefWidth="732.0" />
-                        <Text fill="#f57c00" layoutX="21.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" wrappingWidth="228.1962890625">
+                        <Text fill="#f57c00" layoutX="14.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin - Employee" wrappingWidth="310.1962890625">
                            <font>
                               <Font name="Tahoma" size="29.0" />
                            </font>
@@ -39,19 +39,14 @@
                           <items>
                             <MenuItem mnemonicParsing="false" text="Customer Panel" />
                             <MenuItem mnemonicParsing="false" onAction="#setAdminwarehouseManagerpanel" text="Warehouse Manager Panel" />
-                              <MenuItem mnemonicParsing="false" onAction="#setAdminwarehouseEmployeepanel" text="Warehouse Employee Panel" />
+                              <MenuItem mnemonicParsing="false" text="Warehouse Employee Panel" />
                               <MenuItem mnemonicParsing="false" text="Transporter" />
                           </items>
                            <font>
                               <Font size="15.0" />
                            </font>
                         </MenuButton>
-                        <Button fx:id="AddAdmin" layoutX="476.0" layoutY="21.0" mnemonicParsing="false" onAction="#setAdminAddAdminClick" style="-fx-background-color: #2196F3;" text="Add Admin" textFill="WHITE">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="317.0" layoutY="21.0" mnemonicParsing="false" onAction="#setAdminEditProfileClick" style="-fx-background-color: #2196F3;" text="Edit Admin Profile" textFill="WHITE">
+                        <Button fx:id="AddAdmin" layoutX="446.0" layoutY="23.0" mnemonicParsing="false" onAction="#setAdminAddAdminClick" style="-fx-background-color: #2196F3;" text="Add Employee" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -83,50 +78,55 @@
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="AdmintfFirstName" disable="true" GridPane.columnIndex="1" />
+                                    <TextField fx:id="AdminEmptfFirstName" disable="true" GridPane.columnIndex="1" />
                                     <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" GridPane.rowIndex="1">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="AdmintfLastName" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <TextField fx:id="AdminEmptfLastName" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                     <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" GridPane.rowIndex="2">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="AdmintfID" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <TextField fx:id="AdminEmptfID" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                     <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" GridPane.rowIndex="3">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="AdmintfEmailID" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <TextField fx:id="AdminEmptfEmailID" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                     <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="User name" GridPane.rowIndex="5">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="AdmintfUserName" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <TextField fx:id="AdminEmptfUserName" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                     <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="City" GridPane.rowIndex="6">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="AdmintfCity" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                    <TextField fx:id="AdminEmptfCity" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                                     <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" GridPane.rowIndex="4">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <PasswordField fx:id="AdminpfPassword" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <PasswordField fx:id="AdminEmppfPassword" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                  </children>
                               </GridPane>
-                              <Text fill="#f57c00" layoutX="14.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Information: ">
+                              <Text fill="#f57c00" layoutX="14.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Information: ">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Text>
+                              <Button fx:id="AddAdmin2" layoutX="277.0" layoutY="-1.0" mnemonicParsing="false" onAction="#setAdminAddAdminClick" style="-fx-background-color: #2196F3;" text="Employee Profile" textFill="WHITE">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Button>
                            </children>
                         </AnchorPane>
                         <Button fx:id="logout" layoutX="593.0" layoutY="21.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #d33030;" text="Logout" textFill="WHITE">
@@ -135,6 +135,11 @@
                            </font>
                         </Button>
                         <Label fx:id="adminLabel" layoutX="120.0" layoutY="422.0" prefHeight="25.0" prefWidth="186.0" />
+                        <Button fx:id="AddAdmin1" layoutX="290.0" layoutY="23.0" mnemonicParsing="false" onAction="#setAdminAddAdminClick" style="-fx-background-color: #2196F3;" text="Delete Employee" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
                      </children>
                   </AnchorPane>
                </children>

@@ -1,3 +1,4 @@
+
 package controllers;
 
 import java.io.IOException;
@@ -10,10 +11,12 @@ import javafx.scene.Node;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -21,6 +24,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import models.Connector;
+import javafx.scene.Node;
 
 /**
  * @author Aakash Tyagi Date : 20 April 2017
@@ -31,6 +35,8 @@ public class AdminController {
 
     public static String sessionUser = null;
     public boolean isEdit;
+    public static Node adminNode;
+    //private Stage stage = new Stage();
 
     @FXML
     private TextField AdmintfFirstName;
@@ -181,15 +187,106 @@ public class AdminController {
      }*/
 
     @FXML
+    private void setLogoutButtonClick(Event event) throws IOException{
+        
+        FXMLLoader fxload = new FXMLLoader();
+        fxload.setLocation(getClass().getResource("/application/Login.fxml"));
+        fxload.load();
+        Parent parent = fxload.getRoot();
+        ((Node)event.getSource()).getScene().getWindow().hide();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(parent));
+        stage.setTitle("Login Page - Warehouse Management System");
+        stage.show();
+        
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/Login.fxml"));
+//                            Parent adminParent = FXMLLoader.load(getClass().getResource("/application/Login.fxml"));
+//                            Scene adminScene = new Scene(adminParent);
+//                            Stage adminStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//                            //adminNode = (Node) event.getSource();
+//                            
+//                            adminStage.hide();
+//                            adminStage.setScene(adminScene);
+//                            adminStage.setTitle("Login Page - Warehouse Management System");
+//                            adminStage.show();
+    }
+    
+    @FXML
     private void setAdminAddAdminClick(Event event) throws IOException {
-
+//        try{
+//            replaceSceneContent("/views/AddAdmin.fxml");
+//        }catch(Exception e){
+//            e.printStackTrace();
+//        }
+        
         FXMLLoader fxload = new FXMLLoader();
         fxload.setLocation(getClass().getResource("/views/AddAdmin.fxml"));
         fxload.load();
         Parent parent = fxload.getRoot();
+        ((Node)event.getSource()).getScene().getWindow().hide();
         Stage stage = new Stage();
         stage.setScene(new Scene(parent));
         stage.setTitle("Add New Admin Screen");
         stage.show();
     }
+    @FXML
+    private void setAdminwarehouseEmployeepanel(ActionEvent event) throws IOException {
+//        try{
+//            replaceSceneContent("/views/Admin_warehouseEmployee.fxml");
+//        }catch(Exception e){
+//            e.printStackTrace();
+//        }
+        //((Node)(event.getSource())).getScene().getWindow().hide();
+        FXMLLoader fxload = new FXMLLoader();
+        fxload.setLocation(getClass().getResource("/views/Admin_warehouseEmployee.fxml"));
+        fxload.load();
+        Parent parent = fxload.getRoot();
+        //System.out.println("employee parent: "+parent.toString());
+        //adminNode.getScene().getWindow().hide();
+         //((Stage)event.getSource()).close();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(parent));
+        stage.setTitle("Add New Admin Screen");
+        stage.show();
+        
+    }
+    @FXML
+    private void setAdminwarehouseManagerpanel(ActionEvent event) throws IOException {
+//        try{
+//            replaceSceneContent("/views/Admin_warehouseManager.fxml");
+//        }catch(Exception e){
+//            e.printStackTrace();
+//        }
+        //((Node)(event.getSource())).getScene().getWindow().hide();
+        FXMLLoader fxload = new FXMLLoader();
+        
+        
+        fxload.setLocation(getClass().getResource("/views/Admin_warehouseManager.fxml"));
+        fxload.load();
+        Parent parent = fxload.getRoot();
+        //System.out.println("manager parent:"+parent.toString());
+        //adminNode.getScene().getWindow().hide();
+        //((Stage)event.getSource()).close();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(parent));
+        
+        stage.setTitle("Add New Admin Screen");
+        stage.show();
+      //  ((Node)(event.getSource())).getScene().getWindow().hide();
+    }
+    
+//    private Parent replaceSceneContent(String fxml) throws Exception {
+//        Parent page = (Parent) FXMLLoader.load(getClass().getResource(fxml), null, new JavaFXBuilderFactory());
+//        Scene scene = stage.getScene();
+//        if (scene == null) {
+//            scene = new Scene(page, 700, 550);
+//            //scene.getStylesheets().add(LoginApp.class.getResource("demo.css").toExternalFo      
+//                    stage.setScene(scene);
+//        } else {
+//            stage.getScene().setRoot(page);
+//        }
+//        stage.sizeToScene();
+//        stage.show();
+//        return page;
+//    }
 }
