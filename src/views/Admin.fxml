@@ -45,7 +45,7 @@
                               <Font size="15.0" />
                            </font>
                         </MenuButton>
-                        <Button layoutX="456.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-color: #2196F3;" text="Add Admin" textFill="WHITE">
+                        <Button fx:id="AddAdmin" layoutX="456.0" layoutY="19.0" mnemonicParsing="false" onAction="#setAdminAddAdminClick" style="-fx-background-color: #2196F3;" text="Add Admin" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>

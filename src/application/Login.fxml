@@ -56,14 +56,15 @@
                                  </font>
                               </Text>
                               <PasswordField fx:id="pfPassword" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <ChoiceBox fx:id="cbUser" layoutX="16.0" layoutY="52.0" prefHeight="25.0" prefWidth="122.0" value="Warehouse Employee" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                              <ChoiceBox fx:id="cbUser" layoutX="16.0" layoutY="52.0" prefHeight="25.0" prefWidth="171.0" value="Admin" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                   <items>
                                       <FXCollections fx:factory="observableArrayList">
                                           <String fx:value="Admin" />
                                           <String fx:value="Warehouse Employee" />
                                           <String fx:value="Customer" />
                                           <String fx:value="Transporter" />
-                                          <String fx:value="Warehouse Manager" />  
+                                          <String fx:value="Warehouse Manager" />
+                                            <String fx:value="Supplier" />
                                       </FXCollections>
                                   </items>
                               </ChoiceBox>
