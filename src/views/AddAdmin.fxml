@@ -87,7 +87,7 @@
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="addAdmintfID" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <TextField fx:id="addAdmintfID" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                     <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" GridPane.rowIndex="3">
                                        <font>
                                           <Font size="15.0" />
