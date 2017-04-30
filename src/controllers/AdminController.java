@@ -246,7 +246,7 @@ public class AdminController {
          //((Stage)event.getSource()).close();
         Stage stage = new Stage();
         stage.setScene(new Scene(parent));
-        stage.setTitle("Add New Admin Screen");
+        stage.setTitle("Admin - Warehouse Employee Panel");
         stage.show();
         
     }
@@ -270,10 +270,33 @@ public class AdminController {
         Stage stage = new Stage();
         stage.setScene(new Scene(parent));
         
-        stage.setTitle("Add New Admin Screen");
+        stage.setTitle("Admin - Warehouse Manager Panel");
         stage.show();
       //  ((Node)(event.getSource())).getScene().getWindow().hide();
     }
+    
+    /*@FXML
+    private void setAdminCustomerPanelClick(Event event) throws IOException {
+//        try{
+//            replaceSceneContent("/views/AddAdmin.fxml");
+//        }catch(Exception e){
+//            e.printStackTrace();
+//        }
+        
+        FXMLLoader fxload = new FXMLLoader();
+        fxload.setLocation(getClass().getResource("/views/AddAdmin.fxml"));
+        fxload.load();
+        Parent parent = fxload.getRoot();
+        ((Node)event.getSource()).getScene().getWindow().hide();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(parent));
+        stage.setTitle("Add New Admin Screen");
+        stage.show();
+    }*/
+    
+    
+    
+    
     
 //    private Parent replaceSceneContent(String fxml) throws Exception {
 //        Parent page = (Parent) FXMLLoader.load(getClass().getResource(fxml), null, new JavaFXBuilderFactory());

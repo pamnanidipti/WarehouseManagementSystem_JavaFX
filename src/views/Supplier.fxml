@@ -23,7 +23,7 @@
                   <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0">
                      <children>
                         <Separator layoutX="14.0" layoutY="68.0" prefHeight="4.0" prefWidth="732.0" />
-                        <Text fill="#f57c00" layoutX="21.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" wrappingWidth="228.1962890625">
+                        <Text fill="#f57c00" layoutX="21.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier" wrappingWidth="228.1962890625">
                            <font>
                               <Font name="Tahoma" size="29.0" />
                            </font>
