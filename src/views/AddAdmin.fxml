@@ -138,7 +138,7 @@
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <TableView layoutX="24.0" layoutY="57.0" prefHeight="351.0" prefWidth="301.0">
+                              <TableView fx:id="adminDetailsTableView" layoutX="24.0" layoutY="57.0" prefHeight="351.0" prefWidth="301.0">
                                 <columns>
                                     <TableColumn fx:id="admindetailsFname" prefWidth="75.0" text="First Name" />
                                   <TableColumn fx:id="admindetailsLname" prefWidth="75.0" text="Last Name" />

@@ -22,7 +22,7 @@ public class AdminPOJOTable {
 	      return LName.get();
 	   }
 
-	   public String getUserType() {
+	   public String getcity() {
 	      return city.get();
 	   }
 
