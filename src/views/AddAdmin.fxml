@@ -140,9 +140,9 @@
                               </Button>
                               <TableView fx:id="adminDetailsTableView" layoutX="24.0" layoutY="57.0" prefHeight="351.0" prefWidth="301.0">
                                 <columns>
-                                    <TableColumn fx:id="admindetailsFname" prefWidth="75.0" text="First Name" />
+                                    <TableColumn fx:id="admindetailsId" prefWidth="75.0" text="Admin ID" />
+                                  <TableColumn fx:id="admindetailsFname" prefWidth="75.0" text="First Name" />
                                   <TableColumn fx:id="admindetailsLname" prefWidth="75.0" text="Last Name" />
-                                  <TableColumn fx:id="admindetailsId" prefWidth="75.0" text="Admin ID" />
                                     <TableColumn fx:id="admindetailscity" prefWidth="75.0" text="City" />
                                 </columns>
                               </TableView>
