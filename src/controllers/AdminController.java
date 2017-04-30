@@ -275,8 +275,9 @@ public class AdminController {
       //  ((Node)(event.getSource())).getScene().getWindow().hide();
     }
     
-    /*@FXML
+    @FXML
     private void setAdminCustomerPanelClick(Event event) throws IOException {
+
 //        try{
 //            replaceSceneContent("/views/AddAdmin.fxml");
 //        }catch(Exception e){
@@ -284,17 +285,15 @@ public class AdminController {
 //        }
         
         FXMLLoader fxload = new FXMLLoader();
-        fxload.setLocation(getClass().getResource("/views/AddAdmin.fxml"));
+        fxload.setLocation(getClass().getResource("/views/Admin_Customer.fxml"));
         fxload.load();
         Parent parent = fxload.getRoot();
         ((Node)event.getSource()).getScene().getWindow().hide();
         Stage stage = new Stage();
         stage.setScene(new Scene(parent));
-        stage.setTitle("Add New Admin Screen");
+        stage.setTitle("Admin - Customer Panel");
         stage.show();
-    }*/
-    
-    
+    }
     
     
     

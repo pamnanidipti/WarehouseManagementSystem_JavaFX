@@ -118,7 +118,7 @@
                         </Button>
                         <Label fx:id="adminLabel" layoutX="120.0" layoutY="422.0" prefHeight="25.0" prefWidth="186.0" />
                         <Separator layoutX="495.0" layoutY="81.0" orientation="VERTICAL" prefHeight="408.0" prefWidth="0.0" />
-                        <Button fx:id="AdminCustomerPanel" layoutX="595.0" layoutY="133.0" mnemonicParsing="false" style="-fx-background-color: #2196F3;" text="Customer Panel" textFill="WHITE">
+                        <Button fx:id="AdminCustomerPanel" layoutX="595.0" layoutY="133.0" mnemonicParsing="false" onAction="#setAdminCustomerPanelClick" style="-fx-background-color: #2196F3;" text="Customer Panel" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>

@@ -1,6 +1,5 @@
 package application;
 
-
 import controllers.AdminController;
 import models.*;
 import javafx.event.Event;
@@ -26,13 +25,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- * @author Aakash Tyagi
- * Date : 20 April 2017
+ * @author Aakash Tyagi Date : 20 April 2017
  * @param args the command line arguments
- * @throws InterruptedException 
+ * @throws InterruptedException
  */
-
-
 public class LoginController {
 
     @FXML
@@ -44,19 +40,17 @@ public class LoginController {
 
     private static String sessionUser = null;
     private static Node adminNode;
-   @FXML
-    private void loginButtonClick(Event event) throws SQLException{ 
-       if(isAllFieldFillup()){
+
+    @FXML
+    private void loginButtonClick(Event event) throws SQLException {
+        if (isAllFieldFillup()) {
             String userName = tfEmailID.getText().trim();
             String password = pfPassword.getText();
             String userType = cbUser.getValue().toString().trim();
-
-
-
-
-            switch (userType){
+            //System.out.println(userType);
+            switch (userType) {
                 case "Admin":
-                    if (isValidCredentials(userType,userName,password,"Email")){
+                    if (isValidCredentials(userType, userName, password, "Email")) {
                         try {
                             sessionUser = userName;
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/Admin.fxml"));
@@ -64,7 +58,7 @@ public class LoginController {
                             Scene adminScene = new Scene(adminParent);
                             Stage adminStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                             //adminNode = (Node) event.getSource();
-                            
+
                             adminStage.hide();
                             adminStage.setScene(adminScene);
                             adminStage.setTitle("Admin Panel");
@@ -76,78 +70,154 @@ public class LoginController {
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                    }}}
                     }
-                   // break
-                    /*  case "Guardian":
-                    System.out.println("I am now on Guardian");
-                    break;
-                /*case "Student":
-                    if(isValidCredentials(userType,userName,password,"ID")){
+                break;
+                case "Warehouse Employee":
+                    userType="employee";
+                    if (isValidCredentials(userType, userName, password, "Email")) {
                         try {
-                            Student student = new Student();
-                            student.setStudentId(userName);
-                            Parent studentParent = FXMLLoader.load(getClass().getResource("/student/Student.fxml"));
-                            Scene studentScene = new Scene(studentParent);
-                            Stage studentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                            studentStage.hide();
-                            studentStage.setScene(studentScene);
-                            studentStage.setTitle("Student Panel");
-                            studentStage.show();
+                            sessionUser = userName;
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/Employee.fxml"));
+                            Parent adminParent = FXMLLoader.load(getClass().getResource("/views/Employee.fxml"));
+                            Scene adminScene = new Scene(adminParent);
+                            Stage adminStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                            //adminNode = (Node) event.getSource();
 
-                        }
-                        catch (IOException e){
-                            e.printStackTrace();
-                        }
-                    }
-                    break;
-                case "Teacher":
-                    if (isValidCredentials(userType,userName,password,"Email")){
-                        try {
-                            TeacherController teacherController = new TeacherController();
-                            teacherController.setEmail(userName);
-                            Parent teacherParent = FXMLLoader.load(getClass().getResource("/teacher/Teacher.fxml"));
-                            Scene teacherScene = new Scene(teacherParent);
-                            Stage teacherStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                            teacherStage.hide();
-                            teacherStage.setScene(teacherScene);
-                            teacherStage.setTitle("Teacher Panel");
-                            teacherStage.show();
+                            adminStage.hide();
+                            adminStage.setScene(adminScene);
+                            adminStage.setTitle("Employee Panel");
+                            adminStage.show();
+                            AdminController controller = loader.<AdminController>getController();
+                            //controller.adminNode = this.adminNode;
+                            controller.sessionUser = this.sessionUser;
 
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-
                     }
-                    break;
+                break;
+                case "Warehouse Manager":
+                    userType="manager";
+                    if (isValidCredentials(userType, userName, password, "Email")) {
+                        try {
+                            sessionUser = userName;
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/Manager.fxml"));
+                            Parent adminParent = FXMLLoader.load(getClass().getResource("/views/Manager.fxml"));
+                            Scene adminScene = new Scene(adminParent);
+                            Stage adminStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                            //adminNode = (Node) event.getSource();
 
+                            adminStage.hide();
+                            adminStage.setScene(adminScene);
+                            adminStage.setTitle("Manager Panel");
+                            adminStage.show();
+                            AdminController controller = loader.<AdminController>getController();
+                            //controller.adminNode = this.adminNode;
+                            controller.sessionUser = this.sessionUser;
+
+                            
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                break;
+                case "Customer":
+                    userType="Customer";
+                    if (isValidCredentials(userType, userName, password, "Email")) {
+                        try {
+                            sessionUser = userName;
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/Customer.fxml"));
+                            Parent adminParent = FXMLLoader.load(getClass().getResource("/views/Customer.fxml"));
+                            Scene adminScene = new Scene(adminParent);
+                            Stage adminStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                            //adminNode = (Node) event.getSource();
+
+                            adminStage.hide();
+                            adminStage.setScene(adminScene);
+                            adminStage.setTitle("Customer Panel");
+                            adminStage.show();
+                            AdminController controller = loader.<AdminController>getController();
+                            //controller.adminNode = this.adminNode;
+                            controller.sessionUser = this.sessionUser;
+
+                            
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    } 
             }
-
         }
-
     }
-*/
+                   // break
+                    /*  case "Guardian":
+     System.out.println("I am now on Guardian");
+     break;
+     /*case "Student":
+     if(isValidCredentials(userType,userName,password,"ID")){
+     try {
+     Student student = new Student();
+     student.setStudentId(userName);
+     Parent studentParent = FXMLLoader.load(getClass().getResource("/student/Student.fxml"));
+     Scene studentScene = new Scene(studentParent);
+     Stage studentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+     studentStage.hide();
+     studentStage.setScene(studentScene);
+     studentStage.setTitle("Student Panel");
+     studentStage.show();
 
-    private boolean isValidCredentials(String userType, String userName, String password,String loginType) throws SQLException {
+     }
+     catch (IOException e){
+     e.printStackTrace();
+     }
+     }
+     break;
+     case "Teacher":
+     if (isValidCredentials(userType,userName,password,"Email")){
+     try {
+     TeacherController teacherController = new TeacherController();
+     teacherController.setEmail(userName);
+     Parent teacherParent = FXMLLoader.load(getClass().getResource("/teacher/Teacher.fxml"));
+     Scene teacherScene = new Scene(teacherParent);
+     Stage teacherStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+     teacherStage.hide();
+     teacherStage.setScene(teacherScene);
+     teacherStage.setTitle("Teacher Panel");
+     teacherStage.show();
+
+     } catch (IOException e) {
+     e.printStackTrace();
+     }
+
+     }
+     break;
+
+     }
+
+     }
+
+     }
+     */
+
+    private boolean isValidCredentials(String userType, String userName, String password, String loginType) throws SQLException {
         boolean userPassOk = false;
 
         Connector conn = new Connector();
         Connection connection = conn.connect();
         Statement statement = connection.createStatement();
         /*ResultSet resultSet = statement.executeQuery("select * from "+userType.toLowerCase()+" where db"+userType
-                +loginType+" = '"+userName+"' and db"+userType+"Password = '"+password+"';");*/
-        ResultSet resultSet = statement.executeQuery("select * from "+userType.toLowerCase()+" where "+userType+"UserName = '"+userName+"' and "+userType+"Password = '"+password+"';");
+         +loginType+" = '"+userName+"' and db"+userType+"Password = '"+password+"';");*/
+        ResultSet resultSet = statement.executeQuery("select * from " + userType.toLowerCase() + " where " + userType + "UserName = '" + userName + "' and " + userType + "Password = '" + password + "';");
         //ResultSet resultSet = statement.executeQuery("select * from admin where adminUserName = '"+userName+"' and adminPassword = '"+password+"';");
 
-        while (resultSet.next()){
+        while (resultSet.next()) {
 
-            if(resultSet.getString(userType+"UserName")!=null && resultSet.getString(userType+"Password")!=null){
+            if (resultSet.getString(userType + "UserName") != null && resultSet.getString(userType + "Password") != null) {
                 userPassOk = true;
             }
 
         }
 
-        if(!userPassOk) {
+        if (!userPassOk) {
 
             NotificationType notificationType = NotificationType.ERROR;
             TrayNotification tray = new TrayNotification();
@@ -163,15 +233,12 @@ public class LoginController {
 
         }
 
-
         return userPassOk;
     }
 
-
-
-    private boolean isAllFieldFillup(){
+    private boolean isAllFieldFillup() {
         boolean fillup;
-        if(tfEmailID.getText().trim().isEmpty()||pfPassword.getText().isEmpty()){
+        if (tfEmailID.getText().trim().isEmpty() || pfPassword.getText().isEmpty()) {
 
             NotificationType notificationType = NotificationType.INFORMATION;
             TrayNotification tray = new TrayNotification();
@@ -181,8 +248,9 @@ public class LoginController {
             tray.showAndDismiss(Duration.millis(3000));
 
             fillup = false;
+        } else {
+            fillup = true;
         }
-        else fillup = true;
         return fillup;
     }
 }

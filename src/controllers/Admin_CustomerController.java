@@ -27,6 +27,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import models.AdminPOJOTable;
+import models.Admin_CustomerPOJOTable;
 import models.Connector;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
@@ -36,58 +37,58 @@ import tray.notification.TrayNotification;
  * @param args the command line arguments
  * @throws InterruptedException
  */
-public class AddAdminController implements Initializable {
+public class Admin_CustomerController implements Initializable {
 
     public static String sessionUser = null;
     private static int count;
 
     @FXML
-    private TextField addAdmintfFirstName;
+    private TextField NewCustomertfFirstName;
     @FXML
-    private TextField addAdmintfLastName;
+    private TextField NewCustomertfLastName;
     @FXML
-    private TextField addAdmintfID;
+    private TextField NewCustomertfId;
     @FXML
-    private TextField addAdmintfEmailID;
+    private TextField NewCustomertfEmailId;
     @FXML
-    private PasswordField addAdminpfPassword;
+    private PasswordField NewCustomerpfPassword;
     @FXML
-    private TextField addAdmintfUserName;
+    private TextField NewCustomertfUserName;
     @FXML
-    private TextField addAdmintfCity;
+    private TextField NewCustomertfAddress;
 
     @FXML
-    private TableView<AdminPOJOTable> adminDetailsTableView;
+    private TableView<Admin_CustomerPOJOTable> NewCustomerDetailsTableView;
 
     @FXML
-    TableColumn<AdminPOJOTable, Integer> admindetailsId;
+    TableColumn<Admin_CustomerPOJOTable, Integer> CustomerDetailsId;
     @FXML
-    TableColumn<AdminPOJOTable, String> admindetailsFname;
+    TableColumn<Admin_CustomerPOJOTable, String> CustomerDetailsFname;
     @FXML
-    TableColumn<AdminPOJOTable, String> admindetailsLname;
+    TableColumn<Admin_CustomerPOJOTable, String> CustomerDetailsLname;
     @FXML
-    TableColumn<AdminPOJOTable, String> admindetailscity;
+    TableColumn<Admin_CustomerPOJOTable, String> CustomerDetailsAddress;
+
+   @FXML
+    private Button NewCustomersave;
 
     @FXML
-    private Button save;
+    private Button refreshButtonNewCustomer;
 
     @FXML
-    private Button refreshButton;
+    private Button NewCustomerbackToAdminPanel;
+  
+    @FXML
+    private Button editNewCustomer;
 
     @FXML
-    private Button backToAdminPanel;
+    private Button deleteNewCustomer;
+    @FXML
+    private Button NewCustomerview;
+    @FXML
+    private Button NewCustomersaveChanges;
 
-    @FXML
-    private Button editAdmins;
-
-    @FXML
-    private Button deleteAdmin;
-    @FXML
-    private Button viewAdmin;
-    @FXML
-    private Button saveChanges;
-
-    private void setAllFieldDisableOnClick() {
+/*    private void setAllFieldDisableOnClick() {
         addAdmintfFirstName.setDisable(true);
         addAdmintfLastName.setDisable(true);
         addAdmintfID.setDisable(true);
@@ -116,13 +117,13 @@ public class AddAdminController implements Initializable {
         addAdmintfUserName.clear();
         addAdmintfCity.clear();
 
-    }
+    }*/
 
     private Connector conn = new Connector();
     private Connection connection;
     private Statement statement;
     //private ResultSet rslt;
-    @FXML
+    /*@FXML
     private Label addAdminSaveLabel;
 
     public boolean checkFieldsEmpty() {
@@ -136,8 +137,8 @@ public class AddAdminController implements Initializable {
         } else {
             return false;
         }
-    }
-
+    }*/
+    /*
     @FXML
     private void setAddAdminSaveClick(Event event) {
         setAllFieldEnableOnClick();
@@ -176,7 +177,7 @@ public class AddAdminController implements Initializable {
             e.printStackTrace();
         }
     }
-
+*/
     @FXML
     private void refreshButtonOnClick(Event event) {
         try {
@@ -199,12 +200,12 @@ public class AddAdminController implements Initializable {
             stage.setTitle("Admin Panel");
             stage.show();
         } catch (IOException ex) {
-            Logger.getLogger(AddAdminController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Admin_CustomerController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    /*
     public boolean ifRowSelected() {
-        if (adminDetailsTableView.getSelectionModel().getSelectedItems().size() == 0) {
+        if (NewCustomerDetailsTableView.getSelectionModel().getSelectedItems().size() == 0) {
             NotificationType notificationType = NotificationType.ERROR;
             TrayNotification tray = new TrayNotification();
             tray.setTitle("Attention!!!");
@@ -215,20 +216,20 @@ public class AddAdminController implements Initializable {
         } else {
             return true;
         }
-    }
+    }*/
 
-    public void getRowDetails() {
+    /*public void getRowDetails() {
         try {
-            TablePosition pos = adminDetailsTableView.getSelectionModel().getSelectedCells().get(0);
+            TablePosition pos = NewCustomerDetailsTableView.getSelectionModel().getSelectedCells().get(0);
             int row = pos.getRow();
 
-            AdminPOJOTable item = adminDetailsTableView.getItems().get(row);
+            AdminPOJOTable item = NewCustomerDetailsTableView.getItems().get(row);
             int adminID = item.getAdminID();
             //System.out.println("admin id: " + adminID);
             connection = conn.connect();
             statement = connection.createStatement();
 
-            String sql = "Select * from admin where adminId=" + adminID + ";";
+            String sql = "Select * from customer where customerId=" + adminID + ";";
             //String sql = "Select * from admin where adminId=1;";
 
             ResultSet rs = statement.executeQuery(sql);
@@ -248,7 +249,7 @@ public class AddAdminController implements Initializable {
 
             rs.close();
         } catch (SQLException ex) {
-            Logger.getLogger(AddAdminController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Admin_CustomerController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -270,7 +271,7 @@ public class AddAdminController implements Initializable {
                 connection.close();
                 statement.close();
             } catch (SQLException ex) {
-                Logger.getLogger(AddAdminController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Admin_CustomerController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 
@@ -289,7 +290,7 @@ public class AddAdminController implements Initializable {
             }
 
         } catch (Exception ex) {
-            Logger.getLogger(AddAdminController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Admin_CustomerController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -315,7 +316,7 @@ public class AddAdminController implements Initializable {
             tray.setNotificationType(notificationType);
             tray.showAndDismiss(Duration.millis(3000));
             } catch (SQLException ex) {
-                Logger.getLogger(AddAdminController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Admin_CustomerController.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         }
@@ -329,7 +330,7 @@ public class AddAdminController implements Initializable {
             save.setDisable(true);
         }
 
-    }
+    }*/
     /* 
      @FXML
      private void setAddAdminSaveClick(Event event){
@@ -355,20 +356,20 @@ public class AddAdminController implements Initializable {
         stage.setTitle("Login Page - Warehouse Management System");
         stage.show();
     }
-
+    /*
     @FXML
     private void setaddAdminCancelButton(Event event) {
         setAllFieldDisableOnClick();
         setAllFieldClearOnClick();
         addAdminSaveLabel.setText("");
-    }
+    }*/
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        admindetailsId.setCellValueFactory(new PropertyValueFactory<AdminPOJOTable, Integer>("adminID"));
-        admindetailsFname.setCellValueFactory(new PropertyValueFactory<AdminPOJOTable, String>("FName"));
-        admindetailsLname.setCellValueFactory(new PropertyValueFactory<AdminPOJOTable, String>("LName"));
-        admindetailscity.setCellValueFactory(new PropertyValueFactory<AdminPOJOTable, String>("city"));
+    	CustomerDetailsId.setCellValueFactory(new PropertyValueFactory<Admin_CustomerPOJOTable, Integer>("customerID"));
+    	CustomerDetailsFname.setCellValueFactory(new PropertyValueFactory<Admin_CustomerPOJOTable, String>("customerFName"));
+    	CustomerDetailsFname.setCellValueFactory(new PropertyValueFactory<Admin_CustomerPOJOTable, String>("customerLName"));
+    	CustomerDetailsAddress.setCellValueFactory(new PropertyValueFactory<Admin_CustomerPOJOTable, String>("customerAddress"));
         try {
             buildData();
         } catch (Exception e) {
@@ -376,7 +377,7 @@ public class AddAdminController implements Initializable {
         }
 
     }
-    private ObservableList<AdminPOJOTable> data;
+    private ObservableList<Admin_CustomerPOJOTable> data;
 
     public void buildData() {
         try {
@@ -384,21 +385,21 @@ public class AddAdminController implements Initializable {
             connection = conn.connect();
             statement = connection.createStatement();
 
-            String SQL = "Select * from admin;";
+            String SQL = "Select * from customer;";
 
             ResultSet rs = statement.executeQuery(SQL);
 
             while (rs.next()) {
-                AdminPOJOTable cm = new AdminPOJOTable();
+            	Admin_CustomerPOJOTable cm = new Admin_CustomerPOJOTable();
                 //System.out.println("rs id"+rs.getInt("adminId"));
-                cm.adminID.set(rs.getInt("adminId"));
-                cm.FName.set(rs.getString("adminFirstName"));
-                cm.LName.set(rs.getString("adminLastName"));
-                cm.city.set(rs.getString("adminCity"));
+            	cm.customerID.set(rs.getInt("customerId"));
+                cm.customerFName.set(rs.getString("customerFirstName"));
+                cm.customerLName.set(rs.getString("customerLastName"));
+                cm.customerAddress.set(rs.getString("customerAddress"));
                 data.add(cm);
             }
 
-            adminDetailsTableView.setItems(data);
+            NewCustomerDetailsTableView.setItems(data);
             connection.close();
             statement.close();
 

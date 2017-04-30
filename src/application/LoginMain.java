@@ -16,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import models.DAOModel;
+import models.DAOModel_Customer;
 
 
 public class LoginMain extends Application{
@@ -37,6 +38,8 @@ public class LoginMain extends Application{
 	public static void main(String[] args) throws InterruptedException {
 		launch(args);
 		          DAOModel dao = new DAOModel();
-                          //dao.createAdminTable();
+                        //  dao.createAdminTable();
+		          DAOModel_Customer doaCust = new DAOModel_Customer();
+		         // doaCust.createCustomerTable();
 	}
 }

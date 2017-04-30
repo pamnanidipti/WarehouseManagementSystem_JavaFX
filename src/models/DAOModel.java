@@ -24,10 +24,10 @@ public class DAOModel {
         try {
 
             Statement st = conn.createStatement();
-            String sql = "CREATE TABLE admin (adminId int NOT NULL AUTO_INCREMENT, adminFirstName VARCHAR(255), adminLastName VARCHAR(255),adminUserName VARCHAR(255), adminPassword VARCHAR(255),adminEmailId VARCHAR(255),adminCity VARCHAR(255), PRIMARY KEY(adminId))";
+            //String sql = "CREATE TABLE admin (adminId int NOT NULL AUTO_INCREMENT, adminFirstName VARCHAR(255), adminLastName VARCHAR(255),adminUserName VARCHAR(255), adminPassword VARCHAR(255),adminEmailId VARCHAR(255),adminCity VARCHAR(255), PRIMARY KEY(adminId))";
             String sqlManager = "CREATE TABLE manager (managerId int NOT NULL AUTO_INCREMENT, managerFirstName VARCHAR(255), managerLastName VARCHAR(255),managerUserName VARCHAR(255), managerPassword VARCHAR(255),managerEmailId VARCHAR(255),managerCity VARCHAR(255),managerDepartment VARCHAR(255), PRIMARY KEY(managerId))";
             String sqlEmployee = "CREATE TABLE employee (employeeId int NOT NULL AUTO_INCREMENT, employeeFirstName VARCHAR(255), employeeLastName VARCHAR(255),employeeUserName VARCHAR(255), employeePassword VARCHAR(255),employeeEmailId VARCHAR(255),employeeCity VARCHAR(255),employeeDepartment VARCHAR(255),employeeManager VARCHAR(255), PRIMARY KEY(employeeId))";
-            st.executeUpdate(sql);
+          //  st.executeUpdate(sql);
             st.executeUpdate(sqlManager);
             st.executeUpdate(sqlEmployee);
             System.out.println("Created table in given database...");

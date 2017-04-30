@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddAdminController">
+<AnchorPane prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Admin_CustomerController">
    <children>
       <HBox prefHeight="500.0" prefWidth="750.0">
          <children>
@@ -24,25 +24,25 @@
                <children>
                   <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0">
                      <children>
-                        <Separator layoutX="14.0" layoutY="68.0" prefHeight="4.0" prefWidth="732.0" />
-                        <Text fill="#f57c00" layoutX="21.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Admin" wrappingWidth="228.1962890625">
+                        <Separator layoutX="14.0" layoutY="52.0" prefHeight="4.0" prefWidth="732.0" />
+                        <Text fill="#f57c00" layoutX="9.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin - Customer Panel" wrappingWidth="367.1962890625">
                            <font>
                               <Font name="Tahoma" size="29.0" />
                            </font>
                         </Text>
-                        <Button fx:id="save" layoutX="276.0" layoutY="435.0" mnemonicParsing="false" onAction="#setAddAdminSaveClick" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #2196F3;" text="Save" textFill="WHITE">
+                        <Button fx:id="NewCustomersave" layoutX="276.0" layoutY="435.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #2196F3;" text="Save" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button layoutX="39.0" layoutY="435.0" mnemonicParsing="false" onAction="#setaddAdminCancelButton" prefHeight="31.0" prefWidth="70.0" style="-fx-background-color: #d33030;" text="Cancel" textFill="WHITE">
+                        <Button fx:id="NewCustomerCancelButton" layoutX="39.0" layoutY="435.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="70.0" style="-fx-background-color: #d33030;" text="Cancel" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <AnchorPane layoutX="7.0" layoutY="77.0" prefHeight="341.0" prefWidth="350.0">
+                        <AnchorPane layoutX="7.0" layoutY="77.0" prefHeight="357.0" prefWidth="367.0">
                            <children>
-                              <GridPane layoutX="21.0" layoutY="62.0" prefHeight="252.0" prefWidth="332.0">
+                              <GridPane layoutX="14.0" layoutY="44.0" prefHeight="252.0" prefWidth="332.0">
                                  <columnConstraints>
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -57,56 +57,56 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
-                                    <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name">
+                                    <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer First Name">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="addAdmintfFirstName" GridPane.columnIndex="1" />
-                                    <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" GridPane.rowIndex="1">
+                                    <TextField fx:id="NewCustomertfFirstName" GridPane.columnIndex="1" />
+                                    <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Last Name" GridPane.rowIndex="1">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="addAdmintfLastName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" GridPane.rowIndex="2">
+                                    <TextField fx:id="NewCustomertfLastName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Id" wrappingWidth="121.78369140625" GridPane.rowIndex="2">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="addAdmintfID" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" GridPane.rowIndex="3">
+                                    <TextField fx:id="NewCustomertfId" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Email" GridPane.rowIndex="3">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="addAdmintfEmailID" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                    <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="User name" GridPane.rowIndex="5">
+                                    <TextField fx:id="NewCustomertfEmailId" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer User name" GridPane.rowIndex="5">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="addAdmintfUserName" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                    <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="City" GridPane.rowIndex="6">
+                                    <TextField fx:id="NewCustomertfUserName" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                    <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Address" GridPane.rowIndex="6">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <TextField fx:id="addAdmintfCity" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                    <TextField fx:id="NewCustomertfAddress" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                                     <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" GridPane.rowIndex="4">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Text>
-                                    <PasswordField fx:id="addAdminpfPassword" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <PasswordField fx:id="NewCustomerpfPassword" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                  </children>
                               </GridPane>
-                              <Text fill="#f57c00" layoutX="18.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Information to create Admin : ">
+                              <Text fill="#f57c00" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter details to create new customer: ">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Text>
-                              <Label fx:id="addAdminSaveLabel" layoutX="126.0" layoutY="319.0" prefHeight="17.0" prefWidth="218.0" textFill="#4d973d">
+                              <Label fx:id="addAdminSaveLabel" layoutX="122.0" layoutY="337.0" prefHeight="20.0" prefWidth="218.0" textFill="#4d973d">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -118,37 +118,37 @@
                               <Font size="15.0" />
                            </font>
                         </Button> -->
-                        <AnchorPane layoutX="396.0" layoutY="75.0" prefHeight="414.0" prefWidth="344.0">
+                        <AnchorPane layoutX="381.0" layoutY="53.0" prefHeight="443.0" prefWidth="359.0">
                            <children>
-                              <Button fx:id="refreshButton" layoutX="253.0" layoutY="52.0" mnemonicParsing="false" onAction="#refreshButtonOnClick" style="-fx-background-color: #49a495;" text="Refresh" textFill="WHITE">
+                              <Button fx:id="refreshButtonNewCustomer" layoutX="275.0" layoutY="46.0" mnemonicParsing="false" style="-fx-background-color: #49a495;" text="Refresh" textFill="WHITE">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <TableView fx:id="adminDetailsTableView" layoutX="22.0" layoutY="98.0" prefHeight="302.0" prefWidth="301.0">
+                              <TableView fx:id="NewCustomerDetailsTableView" layoutX="5.0" layoutY="83.0" prefHeight="345.0" prefWidth="353.0">
                                 <columns>
-                                    <TableColumn fx:id="admindetailsId" prefWidth="75.0" text="Admin ID" />
-                                  <TableColumn fx:id="admindetailsFname" prefWidth="75.0" text="First Name" />
-                                  <TableColumn fx:id="admindetailsLname" prefWidth="75.0" text="Last Name" />
-                                    <TableColumn fx:id="admindetailscity" prefWidth="75.0" text="City" />
+                                    <TableColumn fx:id="CustomerDetailsId" prefWidth="75.0" text="Customer ID" />
+                                  <TableColumn fx:id="CustomerDetailsFname" prefWidth="91.0" text="First Name" />
+                                  <TableColumn fx:id="CustomerDetailsLname" prefWidth="87.0" text="Last Name" />
+                                    <TableColumn fx:id="CustomerDetailsAddress" prefWidth="99.0" text="Address" />
                                 </columns>
                               </TableView>
-                              <Text fill="#f57c00" layoutX="9.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Details">
+                              <Text fill="#f57c00" layoutX="6.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer details" wrappingWidth="157.0000033825636">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Text>
-                              <Button fx:id="editAdmins" layoutX="85.0" layoutY="52.0" mnemonicParsing="false" onAction="#editAdminsOnClick" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #2196F3;" text="Edit" textFill="WHITE">
+                              <Button fx:id="editNewCustomer" layoutX="85.0" layoutY="46.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #2196F3;" text="Edit" textFill="WHITE">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="deleteAdmin" layoutX="172.0" layoutY="52.0" mnemonicParsing="false" onAction="#deleteAdminOnClick" prefHeight="31.0" prefWidth="70.0" style="-fx-background-color: #d33030;" text="Delete" textFill="WHITE">
+                              <Button fx:id="deleteNewCustomer" layoutX="169.0" layoutY="46.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="70.0" style="-fx-background-color: #d33030;" text="Delete" textFill="WHITE">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="viewAdmin" layoutY="52.0" mnemonicParsing="false" onAction="#viewAdminOnClick" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #2196F3;" text="View" textFill="WHITE">
+                              <Button fx:id="NewCustomerview" layoutY="46.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #2196F3;" text="View" textFill="WHITE">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
@@ -156,17 +156,17 @@
                            </children>
                         </AnchorPane>
                         <Separator layoutX="372.0" layoutY="80.0" orientation="VERTICAL" prefHeight="404.0" prefWidth="15.0" />
-                        <Button fx:id="logout" layoutX="608.0" layoutY="25.0" mnemonicParsing="false" onAction="#setLogoutButtonClick" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #d33030;" text="Logout" textFill="WHITE">
+                        <Button fx:id="logoutNewCustomer" layoutX="602.0" layoutY="9.0" mnemonicParsing="false" onAction="#setLogoutButtonClick" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #d33030;" text="Logout" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button fx:id="backToAdminPanel" layoutX="411.0" layoutY="25.0" mnemonicParsing="false" onAction="#backToAdminPanelOnClick" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: #2196F3;" text="Back to Admin Panel" textFill="WHITE">
+                        <Button fx:id="NewCustomerbackToAdminPanel" layoutX="411.0" layoutY="9.0" mnemonicParsing="false" onAction="#backToAdminPanelOnClick" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: #2196F3;" text="Back to Admin Panel" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button fx:id="saveChanges" disable="true" layoutX="135.0" layoutY="435.0" mnemonicParsing="false" onAction="#saveChangesOnClick" prefHeight="31.0" prefWidth="116.0" style="-fx-background-color: #2196F3;" text="Save Changes" textFill="WHITE">
+                        <Button fx:id="NewCustomersaveChanges" disable="true" layoutX="135.0" layoutY="435.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="116.0" style="-fx-background-color: #2196F3;" text="Save Changes" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
