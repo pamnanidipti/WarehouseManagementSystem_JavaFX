@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.scene.Node;
 
@@ -23,8 +25,11 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import models.AdminPOJOTable;
 import models.Connector;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 /**
  * @author Aakash Tyagi Date : 20 April 2017
@@ -66,6 +71,22 @@ public class AddAdminController implements Initializable {
     @FXML
     private Button save;
 
+    @FXML
+    private Button refreshButton;
+
+    @FXML
+    private Button backToAdminPanel;
+
+    @FXML
+    private Button editAdmins;
+
+    @FXML
+    private Button deleteAdmin;
+    @FXML
+    private Button viewAdmin;
+    @FXML
+    private Button saveChanges;
+
     private void setAllFieldDisableOnClick() {
         addAdmintfFirstName.setDisable(true);
         addAdmintfLastName.setDisable(true);
@@ -104,6 +125,19 @@ public class AddAdminController implements Initializable {
     @FXML
     private Label addAdminSaveLabel;
 
+    public boolean checkFieldsEmpty() {
+        if (addAdmintfFirstName.getText().equals("") || addAdmintfLastName.getText().equals("") || addAdmintfEmailID.getText().equals("")
+                || addAdminpfPassword.getText().equals("") || addAdmintfUserName.getText().equals("") || addAdmintfCity.getText().equals("")) {
+            //save.setDisable(true);
+            addAdminSaveLabel.setTextFill(Color.web("red"));
+            addAdminSaveLabel.setText("Please enter all values!");
+
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     @FXML
     private void setAddAdminSaveClick(Event event) {
         setAllFieldEnableOnClick();
@@ -118,11 +152,7 @@ public class AddAdminController implements Initializable {
             }
 
             addAdmintfID.setText(String.valueOf(count + 1));
-            if (addAdmintfFirstName.getText().equals("") || addAdmintfLastName.getText().equals("") || addAdmintfEmailID.getText().equals("")
-                    || addAdminpfPassword.getText().equals("") || addAdmintfUserName.getText().equals("") || addAdmintfCity.getText().equals("")) {
-                //save.setDisable(true);
-                addAdminSaveLabel.setTextFill(Color.web("red"));
-                addAdminSaveLabel.setText("Please enter all values!");
+            if (checkFieldsEmpty()) {
 
                 return;
             } else {
@@ -134,6 +164,7 @@ public class AddAdminController implements Initializable {
                 addAdminSaveLabel.setText("Admin Saved to Database");
                 setAllFieldClearOnClick();
                 setAllFieldDisableOnClick();
+                refreshButtonOnClick(event);
             }
             connection.close();
             statement.close();
@@ -146,6 +177,159 @@ public class AddAdminController implements Initializable {
         }
     }
 
+    @FXML
+    private void refreshButtonOnClick(Event event) {
+        try {
+            buildData();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void backToAdminPanelOnClick(Event event) {
+        try {
+            FXMLLoader fxload = new FXMLLoader();
+            fxload.setLocation(getClass().getResource("/views/Admin.fxml"));
+            fxload.load();
+            Parent parent = fxload.getRoot();
+            ((Node) event.getSource()).getScene().getWindow().hide();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(parent));
+            stage.setTitle("Admin Panel");
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(AddAdminController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public boolean ifRowSelected() {
+        if (adminDetailsTableView.getSelectionModel().getSelectedItems().size() == 0) {
+            NotificationType notificationType = NotificationType.ERROR;
+            TrayNotification tray = new TrayNotification();
+            tray.setTitle("Attention!!!");
+            tray.setMessage("You need to select atleast one row!");
+            tray.setNotificationType(notificationType);
+            tray.showAndDismiss(Duration.millis(3000));
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public void getRowDetails() {
+        try {
+            TablePosition pos = adminDetailsTableView.getSelectionModel().getSelectedCells().get(0);
+            int row = pos.getRow();
+
+            AdminPOJOTable item = adminDetailsTableView.getItems().get(row);
+            int adminID = item.getAdminID();
+            //System.out.println("admin id: " + adminID);
+            connection = conn.connect();
+            statement = connection.createStatement();
+
+            String sql = "Select * from admin where adminId=" + adminID + ";";
+            //String sql = "Select * from admin where adminId=1;";
+
+            ResultSet rs = statement.executeQuery(sql);
+
+            while (rs.next()) {
+                addAdmintfFirstName.setText(rs.getString("adminFirstName"));
+                addAdmintfLastName.setText(rs.getString("adminLastName"));
+                addAdmintfID.setText(String.valueOf(rs.getInt("adminId")));
+                addAdmintfLastName.setText(rs.getString("adminLastName"));
+                addAdmintfEmailID.setText(rs.getString("adminEmailId"));
+                addAdminpfPassword.setText(rs.getString("adminPassword"));
+                addAdmintfUserName.setText(rs.getString("adminUserName"));
+                addAdmintfCity.setText(rs.getString("adminCity"));
+            }
+            connection.close();
+            statement.close();
+
+            rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(AddAdminController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void saveChangesOnClick(Event event) {
+        if (!checkFieldsEmpty()) {
+            try {
+                connection = conn.connect();
+                statement = connection.createStatement();
+
+                statement.executeUpdate("update admin set adminFirstName ='" + addAdmintfFirstName.getText() + "',adminLastName='" + addAdmintfLastName.getText() + "',adminUserName ='" + addAdmintfUserName.getText() + "',adminPassword ='" + addAdminpfPassword.getText() + "',adminEmailId ='" + addAdmintfEmailID.getText() + "',adminCity='" + addAdmintfCity.getText() + "' where adminId=" + addAdmintfID.getText() + ";");
+                //System.out.println("Your Details have been updated successfully!");
+                addAdminSaveLabel.setTextFill(Color.web("green"));
+                addAdminSaveLabel.setText("Details updated successfully!");
+                setAllFieldDisableOnClick();
+                setAllFieldClearOnClick();
+                save.setDisable(false);
+                refreshButtonOnClick(event);
+                connection.close();
+                statement.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(AddAdminController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+    }
+
+    @FXML
+    private void editAdminsOnClick(Event event) {
+
+        try {
+
+            if (ifRowSelected()) {
+                getRowDetails();
+                setAllFieldEnableOnClick();
+                save.setDisable(true);
+                saveChanges.setDisable(false);
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(AddAdminController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void deleteAdminOnClick(Event event) {
+        if (ifRowSelected()) {
+            try {
+                TablePosition pos = adminDetailsTableView.getSelectionModel().getSelectedCells().get(0);
+                int row = pos.getRow();
+                AdminPOJOTable item = adminDetailsTableView.getItems().get(row);
+                int adminID = item.getAdminID();
+                //System.out.println("admin id: " + adminID);
+                connection = conn.connect();
+                statement = connection.createStatement();
+                
+                String sql = "delete from admin where adminId=" + adminID + ";";
+                statement.executeUpdate(sql);
+                refreshButtonOnClick(event);
+                NotificationType notificationType = NotificationType.INFORMATION;
+            TrayNotification tray = new TrayNotification();
+            tray.setTitle("Attention!!!");
+            tray.setMessage("Admin Deleted from System!");
+            tray.setNotificationType(notificationType);
+            tray.showAndDismiss(Duration.millis(3000));
+            } catch (SQLException ex) {
+                Logger.getLogger(AddAdminController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+    }
+
+    @FXML
+    private void viewAdminOnClick(Event event) {
+        if (ifRowSelected()) {
+            getRowDetails();
+            setAllFieldDisableOnClick();
+            save.setDisable(true);
+        }
+
+    }
     /* 
      @FXML
      private void setAddAdminSaveClick(Event event){
@@ -157,6 +341,7 @@ public class AddAdminController implements Initializable {
      e.printStackTrace();
      }
      }*/
+
     @FXML
     private void setLogoutButtonClick(Event event) throws IOException {
 
@@ -177,28 +362,13 @@ public class AddAdminController implements Initializable {
         setAllFieldClearOnClick();
         addAdminSaveLabel.setText("");
     }
-    /*@FXML
-     private void setbuttonClick(Event event) throws IOException {
-
-     FXMLLoader loader = new FXMLLoader();
-     loader.setLocation(getClass().getResource("/admin/Course.fxml"));
-     loader.load();
-     Parent p = loader.getRoot();
-     Stage stage = new Stage();
-     stage.setScene(new Scene(p));
-     stage.setTitle("Course Panel");
-     stage.show();
-     }*/
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //assert adminDetailsTableView != null : "fx:id=\"tableview\" was not injected: check your FXML file 'UserMaster.fxml'.";
         admindetailsId.setCellValueFactory(new PropertyValueFactory<AdminPOJOTable, Integer>("adminID"));
         admindetailsFname.setCellValueFactory(new PropertyValueFactory<AdminPOJOTable, String>("FName"));
         admindetailsLname.setCellValueFactory(new PropertyValueFactory<AdminPOJOTable, String>("LName"));
         admindetailscity.setCellValueFactory(new PropertyValueFactory<AdminPOJOTable, String>("city"));
-         //Connector connector = new Connector();
-
         try {
             buildData();
         } catch (Exception e) {
@@ -206,20 +376,14 @@ public class AddAdminController implements Initializable {
         }
 
     }
-
-    // private ObservableList<AdminPOJOTable> data = FXCollections.observableArrayList();
     private ObservableList<AdminPOJOTable> data;
 
-    //private ArrayList<AdminPOJOTable> data = new ArrayList<AdminPOJOTable>();
-
     public void buildData() {
-        //data = FXCollections.observableArrayList();
-
         try {
             data = FXCollections.observableArrayList();
             connection = conn.connect();
             statement = connection.createStatement();
-                        
+
             String SQL = "Select * from admin;";
 
             ResultSet rs = statement.executeQuery(SQL);
@@ -237,7 +401,7 @@ public class AddAdminController implements Initializable {
             adminDetailsTableView.setItems(data);
             connection.close();
             statement.close();
-            
+
             rs.close();
         } catch (Exception e) {
             e.printStackTrace();
