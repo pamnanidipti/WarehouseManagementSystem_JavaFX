@@ -1,6 +1,7 @@
 package application;
 
 import controllers.AdminController;
+import controllers.ManagerController;
 import models.*;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -23,6 +24,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javafx.scene.control.Button;
 
 /**
  * @author Aakash Tyagi Date : 20 April 2017
@@ -37,9 +39,15 @@ public class LoginController {
     private PasswordField pfPassword;
     @FXML
     private ChoiceBox cbUser;
+    @FXML
+    private Button loginButton;
 
     private static String sessionUser = null;
     private static Node adminNode;
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 8fe45dc172a02fb17d534fe103ca63a227f3f85e
 
     @FXML
     private void loginButtonClick(Event event) throws SQLException {
@@ -101,8 +109,13 @@ public class LoginController {
                     if (isValidCredentials(userType, userName, password, "Email")) {
                         try {
                             sessionUser = userName;
+<<<<<<< HEAD
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/Manager.fxml"));
                             Parent adminParent = FXMLLoader.load(getClass().getResource("/views/Manager.fxml"));
+=======
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/ManagerLogin.fxml"));
+                            Parent adminParent = FXMLLoader.load(getClass().getResource("/views/ManagerLogin.fxml"));
+>>>>>>> 8fe45dc172a02fb17d534fe103ca63a227f3f85e
                             Scene adminScene = new Scene(adminParent);
                             Stage adminStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                             //adminNode = (Node) event.getSource();
@@ -111,16 +124,27 @@ public class LoginController {
                             adminStage.setScene(adminScene);
                             adminStage.setTitle("Manager Panel");
                             adminStage.show();
+<<<<<<< HEAD
                             AdminController controller = loader.<AdminController>getController();
                             //controller.adminNode = this.adminNode;
                             controller.sessionUser = this.sessionUser;
 
+=======
+                            ManagerController controller = loader.<ManagerController>getController();
+                            //controller.adminNode = this.adminNode;
+                            System.out.println("LoginC"+sessionUser);
+                            
+                            controller.sessionUser = this.sessionUser;
+                            //System.out.println("manager C:"+controller.sessionUser);
+                            
+>>>>>>> 8fe45dc172a02fb17d534fe103ca63a227f3f85e
                             
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                     }
                 break;
+<<<<<<< HEAD
                 case "Customer":
                     userType="Customer";
                     if (isValidCredentials(userType, userName, password, "Email")) {
@@ -197,6 +221,12 @@ public class LoginController {
 
      }
      */
+=======
+            }
+        }
+    }
+      
+>>>>>>> 8fe45dc172a02fb17d534fe103ca63a227f3f85e
 
     private boolean isValidCredentials(String userType, String userName, String password, String loginType) throws SQLException {
         boolean userPassOk = false;

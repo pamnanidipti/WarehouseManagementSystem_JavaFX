@@ -267,6 +267,10 @@ public class AddAdminController implements Initializable {
                 setAllFieldClearOnClick();
                 save.setDisable(false);
                 refreshButtonOnClick(event);
+<<<<<<< HEAD
+=======
+                saveChanges.setDisable(true);
+>>>>>>> 8fe45dc172a02fb17d534fe103ca63a227f3f85e
                 connection.close();
                 statement.close();
             } catch (SQLException ex) {

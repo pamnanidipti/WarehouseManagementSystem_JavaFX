@@ -120,7 +120,11 @@
                         </Button> -->
                         <AnchorPane layoutX="396.0" layoutY="75.0" prefHeight="414.0" prefWidth="344.0">
                            <children>
+<<<<<<< HEAD
                               <Button fx:id="refreshButton" layoutX="253.0" layoutY="52.0" mnemonicParsing="false" onAction="#refreshButtonOnClick" style="-fx-background-color: #49a495;" text="Refresh" textFill="WHITE">
+=======
+                              <Button fx:id="refreshButton" layoutX="260.0" layoutY="14.0" mnemonicParsing="false" onAction="#refreshButtonOnClick" style="-fx-background-color: #49a495;" text="Refresh" textFill="WHITE">
+>>>>>>> 8fe45dc172a02fb17d534fe103ca63a227f3f85e
                                  <font>
                                     <Font size="15.0" />
                                  </font>
@@ -138,17 +142,29 @@
                                     <Font size="20.0" />
                                  </font>
                               </Text>
+<<<<<<< HEAD
                               <Button fx:id="editAdmins" layoutX="85.0" layoutY="52.0" mnemonicParsing="false" onAction="#editAdminsOnClick" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #2196F3;" text="Edit" textFill="WHITE">
+=======
+                              <Button fx:id="editAdmins" layoutX="75.0" layoutY="-5.0" mnemonicParsing="false" onAction="#editAdminsOnClick" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #2196F3;" text="Edit" textFill="WHITE">
+>>>>>>> 8fe45dc172a02fb17d534fe103ca63a227f3f85e
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
+<<<<<<< HEAD
                               <Button fx:id="deleteAdmin" layoutX="172.0" layoutY="52.0" mnemonicParsing="false" onAction="#deleteAdminOnClick" prefHeight="31.0" prefWidth="70.0" style="-fx-background-color: #d33030;" text="Delete" textFill="WHITE">
+=======
+                              <Button fx:id="deleteAdmin" layoutX="156.0" layoutY="-5.0" mnemonicParsing="false" onAction="#deleteAdminOnClick" prefHeight="31.0" prefWidth="70.0" style="-fx-background-color: #d33030;" text="Delete" textFill="WHITE">
+>>>>>>> 8fe45dc172a02fb17d534fe103ca63a227f3f85e
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
+<<<<<<< HEAD
                               <Button fx:id="viewAdmin" layoutY="52.0" mnemonicParsing="false" onAction="#viewAdminOnClick" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #2196F3;" text="View" textFill="WHITE">
+=======
+                              <Button fx:id="viewAdmin" layoutY="-5.0" mnemonicParsing="false" onAction="#viewAdminOnClick" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #2196F3;" text="View" textFill="WHITE">
+>>>>>>> 8fe45dc172a02fb17d534fe103ca63a227f3f85e
                                  <font>
                                     <Font size="15.0" />
                                  </font>
@@ -161,7 +177,11 @@
                               <Font size="15.0" />
                            </font>
                         </Button>
+<<<<<<< HEAD
                         <Button fx:id="backToAdminPanel" layoutX="411.0" layoutY="25.0" mnemonicParsing="false" onAction="#backToAdminPanelOnClick" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: #2196F3;" text="Back to Admin Panel" textFill="WHITE">
+=======
+                        <Button fx:id="backToAdminPanel" layoutX="421.0" layoutY="25.0" mnemonicParsing="false" onAction="#backToAdminPanelOnClick" prefHeight="31.0" prefWidth="157.0" style="-fx-background-color: #2196F3;" text="Back to Admin Panel" textFill="WHITE">
+>>>>>>> 8fe45dc172a02fb17d534fe103ca63a227f3f85e
                            <font>
                               <Font size="15.0" />
                            </font>
