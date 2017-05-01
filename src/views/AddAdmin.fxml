@@ -106,7 +106,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Text>
-                              <Label fx:id="addAdminSaveLabel" layoutX="126.0" layoutY="319.0" prefHeight="17.0" prefWidth="218.0" textFill="#4d973d">
+                              <Label fx:id="addAdminSaveLabel" layoutX="44.0" layoutY="319.0" prefHeight="27.0" prefWidth="300.0" textFill="#4d973d">
                                  <font>
                                     <Font size="18.0" />
                                  </font>

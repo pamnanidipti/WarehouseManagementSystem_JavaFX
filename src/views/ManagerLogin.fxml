@@ -10,8 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="controllers.ManagerController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ManagerController">
    <children>
       <Separator layoutX="24.0" layoutY="78.0" prefHeight="4.0" prefWidth="732.0" />
       <Text fill="#f57c00" layoutX="31.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manager" wrappingWidth="228.1962890625">
@@ -25,7 +24,7 @@
          </font>
       </Button>
       <Separator layoutX="505.0" layoutY="91.0" orientation="VERTICAL" prefHeight="408.0" prefWidth="0.0" />
-      <Button fx:id="manageEmployee" layoutX="538.0" layoutY="91.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="192.0" style="-fx-background-color: #2196F3;" text="Manage Employee" textFill="WHITE">
+      <Button fx:id="manageEmployee" layoutX="538.0" layoutY="91.0" mnemonicParsing="false" onAction="#manageEmployeeOnClick" prefHeight="31.0" prefWidth="192.0" style="-fx-background-color: #2196F3;" text="Manage Employee" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>

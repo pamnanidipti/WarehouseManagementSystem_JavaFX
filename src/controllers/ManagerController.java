@@ -92,7 +92,7 @@ public class ManagerController implements Initializable{
             managerDetailsGrid.setVisible(true);
            contactAdminLabel.setVisible(true);
            viewSelfDetails.setDisable(true);
-            System.out.println("manager: "+sessionUser);
+            //System.out.println("manager: "+sessionUser);
             
             //String sqlQuery = "select * FROM manager where managerUserName ='"+sessionUser+"';";
             String sqlQuery = "select * FROM manager where managerUserName ='m';";
@@ -114,20 +114,26 @@ public class ManagerController implements Initializable{
         }
         
     }
+    
+    @FXML
+    public void manageEmployeeOnClick(Event event) throws IOException{
+        FXMLLoader fxload = new FXMLLoader();
+        fxload.setLocation(getClass().getResource("/views/ManageEmployee.fxml"));
+        fxload.load();
+        Parent parent = fxload.getRoot();
+        ((Node)event.getSource()).getScene().getWindow().hide();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(parent));
+        stage.setTitle("Manage Employee");
+        stage.show();
+        
+    }
+    
     @FXML
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        try {
-           // setManagerDetails();
-            //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            
+//         
 
     }
 
-    
-//    private void setManagerDetails() {
-//        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    String sqlQuery = "select * FROM manager where managerUserName ='" + sessionUser + "'; ";
-//            System.out.println("MangerC"+sessionUser);
-//    }
 }
