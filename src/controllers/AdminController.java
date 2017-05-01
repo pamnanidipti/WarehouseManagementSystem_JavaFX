@@ -127,6 +127,7 @@ public class AdminController {
             }
             connection.close();
             statement.close();
+            rslt.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
