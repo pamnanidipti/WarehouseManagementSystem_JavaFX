@@ -1,6 +1,7 @@
 package application;
 
 import controllers.AdminController;
+import controllers.CustomerController;
 import controllers.ManagerController;
 import models.*;
 import javafx.event.Event;
@@ -146,7 +147,7 @@ public class LoginController {
                             adminStage.setScene(adminScene);
                             adminStage.setTitle("Customer Panel");
                             adminStage.show();
-                            AdminController controller = loader.<AdminController>getController();
+                            CustomerController controller = loader.<CustomerController>getController();
                             //controller.adminNode = this.adminNode;
                             controller.sessionUser = this.sessionUser;
 

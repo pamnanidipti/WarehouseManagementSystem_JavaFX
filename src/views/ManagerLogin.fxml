@@ -12,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ManagerController">
    <children>
-      <Separator layoutX="24.0" layoutY="78.0" prefHeight="4.0" prefWidth="732.0" />
+      <Separator layoutX="6.0" layoutY="71.0" prefHeight="3.0" prefWidth="726.0" />
       <Text fill="#f57c00" layoutX="31.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manager" wrappingWidth="228.1962890625">
          <font>
             <Font name="Tahoma" size="29.0" />
@@ -44,7 +44,7 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Text fill="#f57c00" layoutX="24.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Details:" wrappingWidth="105.9453125">
+      <Text fill="#f57c00" layoutX="24.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manager Information" wrappingWidth="199.9453125">
          <font>
             <Font size="20.0" />
          </font>
@@ -99,7 +99,7 @@
             <Font name="Monotype Corsiva" size="19.0" />
          </font>
       </Text>
-      <Button fx:id="viewSelfDetails" layoutX="25.0" layoutY="122.0" mnemonicParsing="false" onAction="#viewSelfDetailsOnClick" prefHeight="31.0" prefWidth="192.0" style="-fx-background-color: #0dc913;" text="View Self Details" textFill="WHITE">
+      <Button fx:id="viewSelfDetails" layoutX="294.0" layoutY="91.0" mnemonicParsing="false" onAction="#viewSelfDetailsOnClick" prefHeight="31.0" prefWidth="192.0" style="-fx-background-color: #2196F3;" text="View Self Details" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>

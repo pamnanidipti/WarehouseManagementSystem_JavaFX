@@ -6,8 +6,9 @@
 package application;
 
 /**
- *
- * @author Pamnani
+ * @author Aakash Tyagi Date : 20 April 2017
+ * @param args the command line arguments
+ * @throws InterruptedException
  */
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +18,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import models.DAOModel;
 import models.DAOModel_Customer;
+import models.DAOModel_Products;
 
 
 public class LoginMain extends Application{
@@ -41,5 +43,7 @@ public class LoginMain extends Application{
                         //  dao.createAdminTable();
 		          DAOModel_Customer doaCust = new DAOModel_Customer();
 		         // doaCust.createCustomerTable();
+		          DAOModel_Products doapro = new DAOModel_Products();
+		          //doapro.createProductsTable();
 	}
 }

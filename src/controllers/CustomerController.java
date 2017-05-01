@@ -34,35 +34,34 @@ import models.Connector;
  *
  * @author Pamnani
  */
-public class ManagerController implements Initializable{
+public class CustomerController implements Initializable{
     @FXML
     public Text contactAdminLabel;
     @FXML
-    public Label managerFnameLabel;
+    public Label cutomerFNLabel;
     @FXML
-    public Label managerLnameLabel;
+    public Label cutomerLNLabel;
     @FXML
-    public Label managerIdLabel;
+    public Label cutomerIdLabel;
     @FXML
-    public Label managerEmailLabel;
+    public Label cutomerEmailLabel;
     @FXML
-    public Label managerCityLabel;
-    
+    public Label customerAddressLabel;
+    @FXML
+    public Label cutomerUserNameLabel;
     @FXML
     private Button logout;
     @FXML
-    private Button manageEmployee;
+    private Button placeorders;
     @FXML
-    private Button manageProducts;
+    private Button trackOrder;
     @FXML
     private Button viewOrders;
-    @FXML
-    private Button sales;
     @FXML
     private Button viewSelfDetails;
     
     @FXML
-    private GridPane managerDetailsGrid;
+    private GridPane CustomerInformationGrid;
     
     public static String sessionUser;
     
@@ -89,54 +88,41 @@ public class ManagerController implements Initializable{
     @FXML
     public void viewSelfDetailsOnClick(Event event) throws IOException {
         try {
-            managerDetailsGrid.setVisible(true);
+        	CustomerInformationGrid.setVisible(true);
            contactAdminLabel.setVisible(true);
            viewSelfDetails.setDisable(true);
             //System.out.println("manager: "+sessionUser);
             
             //String sqlQuery = "select * FROM manager where managerUserName ='"+sessionUser+"';";
-            String sqlQuery = "select * FROM manager where managerUserName ='"+sessionUser+"';";
+            String sqlQuery = "select * FROM customer where customerUserName ='c';";
             connection = conn.connect();
             statement = connection.createStatement();
             rslt = statement.executeQuery(sqlQuery);
             while (rslt.next()) {
-                managerFnameLabel.setText(rslt.getString("managerFirstName"));
-                managerLnameLabel.setText(rslt.getString("managerLastName"));
-                managerIdLabel.setText(String.valueOf(rslt.getInt("managerId")));
-                managerEmailLabel.setText(rslt.getString("managerEmailId"));
-                managerCityLabel.setText(rslt.getString("managerCity"));
+            	cutomerFNLabel.setText(rslt.getString("customerFirstName"));
+            	cutomerLNLabel.setText(rslt.getString("customerLastName"));
+            	cutomerIdLabel.setText(String.valueOf(rslt.getInt("customerId")));
+            	cutomerEmailLabel.setText(rslt.getString("customerEmailId"));
+            	cutomerUserNameLabel.setText(rslt.getString("customerUserName"));
+            	customerAddressLabel.setText(rslt.getString("customerAddress"));
             }
             connection.close();
             statement.close();
             rslt.close();
         } catch (SQLException ex) {
-            Logger.getLogger(ManagerController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CustomerController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
-    
-    @FXML
-    public void manageEmployeeOnClick(Event event) throws IOException{
-        
-        FXMLLoader fxload = new FXMLLoader();
-        fxload.setLocation(getClass().getResource("/views/ManageEmployee.fxml"));
-        fxload.load();
-        Parent parent = fxload.getRoot();
-        ((Node)event.getSource()).getScene().getWindow().hide();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(parent));
-        stage.setTitle("Manage Employee");
-        stage.show();
-        ManageEmployeeController controller = fxload.<ManageEmployeeController>getController();
-        controller.sessionUser=this.sessionUser;
-        controller.set();
-    }
-    
-    @FXML
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-//         
 
-    }
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+    
+   
+    
+ 
 
 }

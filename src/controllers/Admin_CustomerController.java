@@ -88,81 +88,81 @@ public class Admin_CustomerController implements Initializable {
     @FXML
     private Button NewCustomersaveChanges;
 
-/*    private void setAllFieldDisableOnClick() {
-        addAdmintfFirstName.setDisable(true);
-        addAdmintfLastName.setDisable(true);
-        addAdmintfID.setDisable(true);
-        addAdmintfEmailID.setDisable(true);
-        addAdminpfPassword.setDisable(true);
-        addAdmintfUserName.setDisable(true);
-        addAdmintfCity.setDisable(true);
+   private void setAllFieldDisableOnClick() {
+	   NewCustomertfFirstName.setDisable(true);
+	   NewCustomertfLastName.setDisable(true);
+	   NewCustomertfId.setDisable(true);
+	   NewCustomertfEmailId.setDisable(true);
+	   NewCustomerpfPassword.setDisable(true);
+	   NewCustomertfUserName.setDisable(true);
+	   NewCustomertfAddress.setDisable(true);
     }
 
     private void setAllFieldEnableOnClick() {
-        addAdmintfFirstName.setDisable(false);
-        addAdmintfLastName.setDisable(false);
-        //addAdmintfID.setDisable(false);
-        addAdmintfEmailID.setDisable(false);
-        addAdminpfPassword.setDisable(false);
-        addAdmintfUserName.setDisable(false);
-        addAdmintfCity.setDisable(false);
+    	NewCustomertfFirstName.setDisable(false);
+    	NewCustomertfLastName.setDisable(false);
+        //NewCustomertfId.setDisable(false);
+    	NewCustomertfEmailId.setDisable(false);
+    	NewCustomerpfPassword.setDisable(false);
+    	NewCustomertfUserName.setDisable(false);
+    	NewCustomertfAddress.setDisable(false);
     }
 
     private void setAllFieldClearOnClick() {
-        addAdmintfFirstName.clear();
-        addAdmintfLastName.clear();
-        addAdmintfID.clear();
-        addAdmintfEmailID.clear();
-        addAdminpfPassword.clear();
-        addAdmintfUserName.clear();
-        addAdmintfCity.clear();
+    	NewCustomertfFirstName.clear();
+    	NewCustomertfLastName.clear();
+    	NewCustomertfId.clear();
+    	NewCustomertfEmailId.clear();
+    	NewCustomerpfPassword.clear();
+    	NewCustomertfUserName.clear();
+    	NewCustomertfAddress.clear();
 
-    }*/
+    }
 
     private Connector conn = new Connector();
     private Connection connection;
     private Statement statement;
-    //private ResultSet rslt;
-    /*@FXML
-    private Label addAdminSaveLabel;
+    private ResultSet rslt;
+    @FXML
+    private Label addNewCustomerSaveLabel;
 
     public boolean checkFieldsEmpty() {
-        if (addAdmintfFirstName.getText().equals("") || addAdmintfLastName.getText().equals("") || addAdmintfEmailID.getText().equals("")
-                || addAdminpfPassword.getText().equals("") || addAdmintfUserName.getText().equals("") || addAdmintfCity.getText().equals("")) {
+        if (NewCustomertfFirstName.getText().equals("") || NewCustomertfLastName.getText().equals("") || NewCustomertfId.getText().equals("")
+                || NewCustomerpfPassword.getText().equals("") || NewCustomertfUserName.getText().equals("") || NewCustomertfAddress.getText().equals("")) {
             //save.setDisable(true);
-            addAdminSaveLabel.setTextFill(Color.web("red"));
-            addAdminSaveLabel.setText("Please enter all values!");
+        	addNewCustomerSaveLabel.setTextFill(Color.web("red"));
+        	addNewCustomerSaveLabel.setText("Please enter all values!");
 
             return true;
         } else {
             return false;
         }
-    }*/
-    /*
+    }
+    
     @FXML
-    private void setAddAdminSaveClick(Event event) {
+    private void setNewCustomerSaveClick(Event event) {
         setAllFieldEnableOnClick();
         try {
 
             connection = conn.connect();
             statement = connection.createStatement();
 
-            ResultSet resultSet = statement.executeQuery("select count(*) from admin");
+            ResultSet resultSet = statement.executeQuery("select count(*) from customer");
             while (resultSet.next()) {
                 count = resultSet.getInt(1);
             }
 
-            addAdmintfID.setText(String.valueOf(count + 1));
+            NewCustomertfId.setText(String.valueOf(count + 1));
             if (checkFieldsEmpty()) {
 
                 return;
             } else {
                 //save.setDisable(false);
-                String sqlQuery = "insert into admin (adminId,adminFirstName,adminLastName,adminUserName,adminPassword,adminEmailId,adminCity )" + "values (" + addAdmintfID.getText() + " , '" + addAdmintfFirstName.getText() + "','" + addAdmintfLastName.getText() + "','" + addAdmintfUserName.getText() + "','" + addAdminpfPassword.getText() + "','" + addAdmintfEmailID.getText() + "','" + addAdmintfCity.getText() + "')";
+                String sqlQuery = "insert into customer (customerId,customerFirstName,customerLastName,customerUserName,customerPassword,customerEmailId,customerAddress )" + "values (" + NewCustomertfId.getText() + " , '" + NewCustomertfFirstName.getText() + "','" + NewCustomertfLastName.getText() + "','" + NewCustomertfUserName.getText() + "','" + NewCustomerpfPassword.getText() + "','" + NewCustomertfEmailId.getText() + "','" + NewCustomertfAddress.getText() + "')";
                 //System.out.println(sqlQuery);
                 statement.executeUpdate(sqlQuery);
-                addAdminSaveLabel.setTextFill(Color.web("green"));
-                addAdminSaveLabel.setText("Admin Saved to Database");
+                addNewCustomerSaveLabel.setTextFill(Color.web("green"));
+                addNewCustomerSaveLabel.setText("customer Saved to Database");
                 setAllFieldClearOnClick();
                 setAllFieldDisableOnClick();
                 refreshButtonOnClick(event);
@@ -172,12 +172,12 @@ public class Admin_CustomerController implements Initializable {
             resultSet.close();
 
         } catch (SQLException e) {
-            addAdminSaveLabel.setText("Admin Not Saved to Database");
-            System.out.println("Values are not inserted in admin table after save button");
+            addNewCustomerSaveLabel.setText("Customer Not Saved to Database");
+            System.out.println("Values are not inserted in customer table after save button");
             e.printStackTrace();
         }
     }
-*/
+
     @FXML
     private void refreshButtonOnClick(Event event) {
         try {
@@ -203,7 +203,7 @@ public class Admin_CustomerController implements Initializable {
             Logger.getLogger(Admin_CustomerController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    /*
+    
     public boolean ifRowSelected() {
         if (NewCustomerDetailsTableView.getSelectionModel().getSelectedItems().size() == 0) {
             NotificationType notificationType = NotificationType.ERROR;
@@ -216,33 +216,33 @@ public class Admin_CustomerController implements Initializable {
         } else {
             return true;
         }
-    }*/
+    }
 
-    /*public void getRowDetails() {
+    public void getRowDetails() {
         try {
             TablePosition pos = NewCustomerDetailsTableView.getSelectionModel().getSelectedCells().get(0);
             int row = pos.getRow();
 
-            AdminPOJOTable item = NewCustomerDetailsTableView.getItems().get(row);
-            int adminID = item.getAdminID();
-            //System.out.println("admin id: " + adminID);
+            Admin_CustomerPOJOTable item = NewCustomerDetailsTableView.getItems().get(row);
+            int customerID = item.getCustomerID();
+            
             connection = conn.connect();
             statement = connection.createStatement();
 
-            String sql = "Select * from customer where customerId=" + adminID + ";";
+            String sql = "Select * from customer where customerId=" + customerID + ";";
             //String sql = "Select * from admin where adminId=1;";
 
             ResultSet rs = statement.executeQuery(sql);
 
             while (rs.next()) {
-                addAdmintfFirstName.setText(rs.getString("adminFirstName"));
-                addAdmintfLastName.setText(rs.getString("adminLastName"));
-                addAdmintfID.setText(String.valueOf(rs.getInt("adminId")));
-                addAdmintfLastName.setText(rs.getString("adminLastName"));
-                addAdmintfEmailID.setText(rs.getString("adminEmailId"));
-                addAdminpfPassword.setText(rs.getString("adminPassword"));
-                addAdmintfUserName.setText(rs.getString("adminUserName"));
-                addAdmintfCity.setText(rs.getString("adminCity"));
+            	NewCustomertfFirstName.setText(rs.getString("customerFirstName"));
+            	NewCustomertfLastName.setText(rs.getString("customerLastName"));
+            	NewCustomertfId.setText(String.valueOf(rs.getInt("customerId")));
+            	NewCustomertfLastName.setText(rs.getString("customerLastName"));
+                NewCustomertfEmailId.setText(rs.getString("customerEmailId"));
+                NewCustomerpfPassword.setText(rs.getString("customerPassword"));
+                NewCustomertfUserName.setText(rs.getString("customerUserName"));
+                NewCustomertfAddress.setText(rs.getString("customerAddress"));
             }
             connection.close();
             statement.close();
@@ -252,7 +252,7 @@ public class Admin_CustomerController implements Initializable {
             Logger.getLogger(Admin_CustomerController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+   
     @FXML
     private void saveChangesOnClick(Event event) {
         if (!checkFieldsEmpty()) {
@@ -260,13 +260,13 @@ public class Admin_CustomerController implements Initializable {
                 connection = conn.connect();
                 statement = connection.createStatement();
 
-                statement.executeUpdate("update admin set adminFirstName ='" + addAdmintfFirstName.getText() + "',adminLastName='" + addAdmintfLastName.getText() + "',adminUserName ='" + addAdmintfUserName.getText() + "',adminPassword ='" + addAdminpfPassword.getText() + "',adminEmailId ='" + addAdmintfEmailID.getText() + "',adminCity='" + addAdmintfCity.getText() + "' where adminId=" + addAdmintfID.getText() + ";");
+                statement.executeUpdate("update customer set customerFirstName ='" + NewCustomertfFirstName.getText() + "',customerLastName='" + NewCustomertfLastName.getText() + "',customerUserName ='" + NewCustomertfUserName.getText() + "',customerPassword ='" + NewCustomerpfPassword.getText() + "',customerEmailId ='" + NewCustomertfEmailId.getText() + "',customerAddress='" + NewCustomertfAddress.getText() + "' where customerId=" + NewCustomertfId.getText() + ";");
                 //System.out.println("Your Details have been updated successfully!");
-                addAdminSaveLabel.setTextFill(Color.web("green"));
-                addAdminSaveLabel.setText("Details updated successfully!");
+                addNewCustomerSaveLabel.setTextFill(Color.web("green"));
+                addNewCustomerSaveLabel.setText("Details updated successfully!");
                 setAllFieldDisableOnClick();
                 setAllFieldClearOnClick();
-                save.setDisable(false);
+                NewCustomersave.setDisable(false);
                 refreshButtonOnClick(event);
                 connection.close();
                 statement.close();
@@ -276,37 +276,37 @@ public class Admin_CustomerController implements Initializable {
         }
 
     }
-
+    
     @FXML
-    private void editAdminsOnClick(Event event) {
+    private void editcustomerOnClick(Event event) {
 
         try {
 
             if (ifRowSelected()) {
                 getRowDetails();
                 setAllFieldEnableOnClick();
-                save.setDisable(true);
-                saveChanges.setDisable(false);
+                NewCustomersave.setDisable(true);
+                NewCustomersaveChanges.setDisable(false);
             }
 
         } catch (Exception ex) {
             Logger.getLogger(Admin_CustomerController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
     @FXML
-    private void deleteAdminOnClick(Event event) {
+    private void deletecustomerOnClick(Event event) {
         if (ifRowSelected()) {
             try {
-                TablePosition pos = adminDetailsTableView.getSelectionModel().getSelectedCells().get(0);
+                TablePosition pos = NewCustomerDetailsTableView.getSelectionModel().getSelectedCells().get(0);
                 int row = pos.getRow();
-                AdminPOJOTable item = adminDetailsTableView.getItems().get(row);
-                int adminID = item.getAdminID();
+                Admin_CustomerPOJOTable item = NewCustomerDetailsTableView.getItems().get(row);
+                int gCustomerID = item.getCustomerID();
                 //System.out.println("admin id: " + adminID);
                 connection = conn.connect();
                 statement = connection.createStatement();
                 
-                String sql = "delete from admin where adminId=" + adminID + ";";
+                String sql = "delete from customer where customerId=" + gCustomerID + ";";
                 statement.executeUpdate(sql);
                 refreshButtonOnClick(event);
                 NotificationType notificationType = NotificationType.INFORMATION;
@@ -323,14 +323,14 @@ public class Admin_CustomerController implements Initializable {
     }
 
     @FXML
-    private void viewAdminOnClick(Event event) {
+    private void viewCustomerOnClick(Event event) {
         if (ifRowSelected()) {
             getRowDetails();
             setAllFieldDisableOnClick();
-            save.setDisable(true);
+            NewCustomersave.setDisable(true);
         }
 
-    }*/
+    }
     /* 
      @FXML
      private void setAddAdminSaveClick(Event event){
@@ -356,19 +356,19 @@ public class Admin_CustomerController implements Initializable {
         stage.setTitle("Login Page - Warehouse Management System");
         stage.show();
     }
-    /*
+    
     @FXML
-    private void setaddAdminCancelButton(Event event) {
+    private void setNewCustomerCancelButton(Event event) {
         setAllFieldDisableOnClick();
         setAllFieldClearOnClick();
-        addAdminSaveLabel.setText("");
-    }*/
+        addNewCustomerSaveLabel.setText(" Data has been Reset");
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     	CustomerDetailsId.setCellValueFactory(new PropertyValueFactory<Admin_CustomerPOJOTable, Integer>("customerID"));
     	CustomerDetailsFname.setCellValueFactory(new PropertyValueFactory<Admin_CustomerPOJOTable, String>("customerFName"));
-    	CustomerDetailsFname.setCellValueFactory(new PropertyValueFactory<Admin_CustomerPOJOTable, String>("customerLName"));
+    	CustomerDetailsLname.setCellValueFactory(new PropertyValueFactory<Admin_CustomerPOJOTable, String>("customerLName"));
     	CustomerDetailsAddress.setCellValueFactory(new PropertyValueFactory<Admin_CustomerPOJOTable, String>("customerAddress"));
         try {
             buildData();
