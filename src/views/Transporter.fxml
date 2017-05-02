@@ -28,19 +28,9 @@
                               <Font name="Tahoma" size="29.0" />
                            </font>
                         </Text>
-                        <Button fx:id="updateProfileButton" disable="true" layoutX="291.0" layoutY="451.0" mnemonicParsing="false" onAction="#setAdminUpdateProfileClick" style="-fx-background-color: #2196F3;" text="Update Profile" textFill="WHITE">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="58.0" layoutY="451.0" mnemonicParsing="false" onAction="#setAdminCancelButtonClick" style="-fx-background-color: #d33030;" text="Cancel" textFill="WHITE">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Button>
                         <AnchorPane layoutX="12.0" layoutY="81.0" prefHeight="332.0" prefWidth="394.0">
                            <children>
-                              <GridPane layoutX="58.0" layoutY="89.0" prefHeight="252.0" prefWidth="332.0">
+                              <GridPane layoutX="35.0" layoutY="57.0" prefHeight="252.0" prefWidth="332.0">
                                  <columnConstraints>
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -49,6 +39,7 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     <RowConstraints maxHeight="33.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
                                     <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -85,7 +76,7 @@
                                        </font>
                                     </Text>
                                     <TextField fx:id="AdmintfUserName" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                    <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="City" GridPane.rowIndex="6">
+                                    <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Truck number" GridPane.rowIndex="6">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -97,14 +88,20 @@
                                        </font>
                                     </Text>
                                     <PasswordField fx:id="AdminpfPassword" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Location" GridPane.rowIndex="7">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="AdmintfCity1" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                                  </children>
                               </GridPane>
-                              <Text fill="#f57c00" layoutX="14.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Information: ">
+                              <Text fill="#f57c00" layoutX="14.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transporter Information: ">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Text>
-                              <Button layoutX="317.0" layoutY="-1.0" mnemonicParsing="false" onAction="#setAdminEditProfileClick" style="-fx-background-color: #2196F3;" text="Edit Admin Profile" textFill="WHITE">
+                              <Button fx:id="viewSelfDetails" layoutX="265.0" layoutY="14.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="204.0" style="-fx-background-color: #2196F3;" text="View Self Details" textFill="WHITE">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
@@ -116,43 +113,23 @@
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Label fx:id="adminLabel" layoutX="120.0" layoutY="422.0" prefHeight="25.0" prefWidth="186.0" />
+                        <Label fx:id="Transporterlabel" layoutX="120.0" layoutY="422.0" prefHeight="25.0" prefWidth="186.0" />
                         <Separator layoutX="495.0" layoutY="81.0" orientation="VERTICAL" prefHeight="408.0" prefWidth="0.0" />
-                        <Button fx:id="AdminCustomerPanel" layoutX="595.0" layoutY="133.0" mnemonicParsing="false" style="-fx-background-color: #2196F3;" text="Customer Panel" textFill="WHITE">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="AdminWarehouseEmployee" layoutX="520.0" layoutY="333.0" mnemonicParsing="false" onAction="#setAdminwarehouseEmployeepanel" style="-fx-background-color: #2196F3;" text="Warehouse Employee Panel" textFill="WHITE">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="AdminManagerPanel" layoutX="520.0" layoutY="285.0" mnemonicParsing="false" onAction="#setAdminwarehouseManagerpanel" prefHeight="31.0" prefWidth="204.0" style="-fx-background-color: #2196F3;" text="Warehouse Manager Panel" textFill="WHITE">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="adminTransporterPanel" layoutX="591.0" layoutY="186.0" mnemonicParsing="false" style="-fx-background-color: #2196F3;" text="Transpoter Panel" textFill="WHITE">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="AddAdmin" layoutX="595.0" layoutY="81.0" mnemonicParsing="false" onAction="#setAdminAddAdminClick" prefHeight="31.0" prefWidth="125.0" style="-fx-background-color: #2196F3;" text="Add Admin" textFill="WHITE">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="adminSupplierPanel" layoutX="592.0" layoutY="235.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="132.0" style="-fx-background-color: #2196F3;" text="Supplier Panel" textFill="WHITE">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Button>
                      </children>
                   </AnchorPane>
                </children>
             </VBox>
          </children>
       </HBox>
+      <Button fx:id="AvailableProducts" layoutX="526.0" layoutY="91.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="204.0" style="-fx-background-color: #2196F3;" text="View All Request" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="placeorders" layoutX="526.0" layoutY="145.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="204.0" style="-fx-background-color: #2196F3;" text="Update Order Status" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

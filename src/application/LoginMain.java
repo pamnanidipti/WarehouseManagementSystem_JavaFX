@@ -18,7 +18,10 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import models.DAOModel;
 import models.DAOModel_Customer;
+import models.DAOModel_CustomerOrders;
+import models.DAOModel_Order;
 import models.DAOModel_Products;
+import models.DAOModel_Transporter;
 
 
 public class LoginMain extends Application{
@@ -42,8 +45,15 @@ public class LoginMain extends Application{
 		          DAOModel dao = new DAOModel();
                         //  dao.createAdminTable();
 		          DAOModel_Customer doaCust = new DAOModel_Customer();
-		         // doaCust.createCustomerTable();
+		         //doaCust.createCustomerTable();
 		          DAOModel_Products doapro = new DAOModel_Products();
 		          //doapro.createProductsTable();
+                          DAOModel_CustomerOrders daoOrder = new DAOModel_CustomerOrders();
+                          //daoOrder.createOrdersTable();
+                          DAOModel_Order daoOrd = new DAOModel_Order();
+		         //daoOrd.createOrderTable();
+		          
+		          DAOModel_Transporter daotrns = new DAOModel_Transporter();
+		          //daotrns.createTransporterTable();
 	}
 }

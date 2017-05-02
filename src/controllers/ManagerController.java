@@ -133,6 +133,36 @@ public class ManagerController implements Initializable{
     }
     
     @FXML
+    public void manageProductsOnClick(Event event) throws IOException{
+        
+        FXMLLoader fxload = new FXMLLoader();
+        fxload.setLocation(getClass().getResource("/views/ManageProducts.fxml"));
+        fxload.load();
+        Parent parent = fxload.getRoot();
+        ((Node)event.getSource()).getScene().getWindow().hide();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(parent));
+        stage.setTitle("Manage Products");
+        stage.show();
+        
+    }
+    
+    @FXML
+    public void viewOrdersOnClick(Event event) throws IOException{
+        
+        FXMLLoader fxload = new FXMLLoader();
+        fxload.setLocation(getClass().getResource("/views/ViewCustomerOrders.fxml"));
+        fxload.load();
+        Parent parent = fxload.getRoot();
+        ((Node)event.getSource()).getScene().getWindow().hide();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(parent));
+        stage.setTitle("View Customer Orders");
+        stage.show();
+        
+    }
+    
+    @FXML
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 //         

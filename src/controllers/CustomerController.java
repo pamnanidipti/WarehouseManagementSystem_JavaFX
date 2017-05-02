@@ -16,6 +16,9 @@ import java.sql.Statement;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,10 +28,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import models.AdminPOJOTable;
+import models.Admin_CustomerPOJOTable;
 import models.Connector;
+import models.Customer_AvailablePOJOTable;
 
 /**
  *
@@ -36,7 +45,7 @@ import models.Connector;
  */
 public class CustomerController implements Initializable{
     @FXML
-    public Text contactAdminLabel;
+    public Label contactAdminLabel;
     @FXML
     public Label cutomerFNLabel;
     @FXML
@@ -56,7 +65,7 @@ public class CustomerController implements Initializable{
     @FXML
     private Button trackOrder;
     @FXML
-    private Button viewOrders;
+    private Button AvailableProducts;
     @FXML
     private Button viewSelfDetails;
     
@@ -65,7 +74,15 @@ public class CustomerController implements Initializable{
     
     public static String sessionUser;
     
-    private Connector conn = new Connector();
+    public static String getSessionUser() {
+		return sessionUser;
+	}
+
+	public static void setSessionUser(String sessionUser) {
+		CustomerController.sessionUser = sessionUser;
+	}
+
+	private Connector conn = new Connector();
     private Connection connection;
     private Statement statement;
     private ResultSet rslt;
@@ -89,12 +106,12 @@ public class CustomerController implements Initializable{
     public void viewSelfDetailsOnClick(Event event) throws IOException {
         try {
         	CustomerInformationGrid.setVisible(true);
-           contactAdminLabel.setVisible(true);
-           viewSelfDetails.setDisable(true);
-            //System.out.println("manager: "+sessionUser);
+          contactAdminLabel.setVisible(true);
+          viewSelfDetails.setDisable(true);
+           // System.out.println("customer: "+sessionUser);
             
-            //String sqlQuery = "select * FROM manager where managerUserName ='"+sessionUser+"';";
-            String sqlQuery = "select * FROM customer where customerUserName ='c';";
+            String sqlQuery = "select * FROM customer where customerUserName ='"+sessionUser+"';";
+            //String sqlQuery = "select * FROM customer where customerUserName ='c';";
             connection = conn.connect();
             statement = connection.createStatement();
             rslt = statement.executeQuery(sqlQuery);
@@ -115,14 +132,65 @@ public class CustomerController implements Initializable{
         
     }
 
+    
+    
+    
+    @FXML
+    private void ViewAvailableProductsclick(Event event) throws IOException {
+
+        FXMLLoader fxload = new FXMLLoader();
+        fxload.setLocation(getClass().getResource("/views/AvailableProducts.fxml"));
+        fxload.load();
+        Parent parent = fxload.getRoot();
+        ((Node) event.getSource()).getScene().getWindow().hide();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(parent));
+        stage.setTitle("Available Products");
+        stage.show();
+    }
+    
+    @FXML
+    private void placeOrdersOnclick(Event event) throws IOException {
+
+        FXMLLoader fxload = new FXMLLoader();
+        fxload.setLocation(getClass().getResource("/views/Customer_PlaceOrders.fxml"));
+        fxload.load();
+        Parent parent = fxload.getRoot();
+        ((Node) event.getSource()).getScene().getWindow().hide();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(parent));
+        stage.setTitle("Place Orders");
+        stage.show();
+    }
+    
+    @FXML
+    private void trackOrdersOnclick(Event event) throws IOException {
+
+        FXMLLoader fxload = new FXMLLoader();
+        fxload.setLocation(getClass().getResource("/views/Customer_TrackOrders.fxml"));
+        fxload.load();
+        Parent parent = fxload.getRoot();
+        ((Node) event.getSource()).getScene().getWindow().hide();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(parent));
+        stage.setTitle("Track Orders");
+        stage.show();
+        Customer_TrackOrdersController controller = fxload.<Customer_TrackOrdersController>getController();
+        
+        controller.sessionUser=this.sessionUser;
+        controller.buildData();
+        //controller.initialize(sessionUser, null);
+    }
+    
 	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+	public void initialize(URL arg0, ResourceBundle arg1) 
+		{
+	    
 		
 	}
     
    
-    
+
  
 
 }

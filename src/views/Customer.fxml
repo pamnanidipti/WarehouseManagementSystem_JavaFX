@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminController">
+<AnchorPane prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CustomerController">
    <children>
       <HBox prefHeight="500.0" prefWidth="750.0">
          <children>
@@ -28,7 +28,7 @@
                         </Text>
                         <AnchorPane layoutX="12.0" layoutY="75.0" prefHeight="415.0" prefWidth="479.0">
                            <children>
-                              <GridPane fx:id="CustomerInformationGrid" layoutX="58.0" layoutY="89.0" prefHeight="213.0" prefWidth="332.0">
+                              <GridPane fx:id="CustomerInformationGrid" layoutX="58.0" layoutY="89.0" prefHeight="213.0" prefWidth="332.0" visible="false">
                                  <columnConstraints>
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -90,7 +90,7 @@
                                     <Font size="15.0" />
                                  </font>
                               </Button>
-                              <Label fx:id="contactAdminLabel" layoutX="45.0" layoutY="318.0" prefHeight="27.0" prefWidth="425.0" text="Contact the Admin to make any Changes on your Profile!!" textFill="#d30000">
+                              <Label fx:id="contactAdminLabel" layoutX="45.0" layoutY="318.0" prefHeight="27.0" prefWidth="425.0" text="Contact the Admin to make any Changes on your Profile!!" textFill="#d30000" visible="false">
                                  <font>
                                     <Font name="Monotype Corsiva" size="19.0" />
                                  </font>
@@ -102,19 +102,18 @@
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Label fx:id="adminLabel" layoutX="120.0" layoutY="422.0" prefHeight="25.0" prefWidth="186.0" />
                         <Separator layoutX="495.0" layoutY="81.0" orientation="VERTICAL" prefHeight="408.0" prefWidth="0.0" />
-                        <Button fx:id="trackOrder" layoutX="516.0" layoutY="190.0" mnemonicParsing="false" onAction="#setAdminwarehouseEmployeepanel" prefHeight="31.0" prefWidth="204.0" style="-fx-background-color: #2196F3;" text="Track Order" textFill="WHITE">
+                        <Button fx:id="trackOrder" layoutX="516.0" layoutY="190.0" mnemonicParsing="false" onAction="#trackOrdersOnclick" prefHeight="31.0" prefWidth="204.0" style="-fx-background-color: #2196F3;" text="Track Order" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button fx:id="placeorders" layoutX="516.0" layoutY="135.0" mnemonicParsing="false" onAction="#setAdminwarehouseManagerpanel" prefHeight="31.0" prefWidth="204.0" style="-fx-background-color: #2196F3;" text="Place Order" textFill="WHITE">
+                        <Button fx:id="placeorders" layoutX="516.0" layoutY="135.0" mnemonicParsing="false" onAction="#placeOrdersOnclick" prefHeight="31.0" prefWidth="204.0" style="-fx-background-color: #2196F3;" text="Place Order" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button fx:id="AvailableProducts" layoutX="516.0" layoutY="81.0" mnemonicParsing="false" onAction="#setAdminAddAdminClick" prefHeight="31.0" prefWidth="204.0" style="-fx-background-color: #2196F3;" text="View Available Products" textFill="WHITE">
+                        <Button fx:id="AvailableProducts" layoutX="516.0" layoutY="81.0" mnemonicParsing="false" onAction="#ViewAvailableProductsclick" prefHeight="31.0" prefWidth="204.0" style="-fx-background-color: #2196F3;" text="View Available Products" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>

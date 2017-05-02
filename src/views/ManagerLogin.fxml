@@ -29,12 +29,12 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="manageProducts" layoutX="538.0" layoutY="137.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="192.0" style="-fx-background-color: #2196F3;" text="Manage Products" textFill="WHITE">
+      <Button fx:id="manageProducts" layoutX="538.0" layoutY="137.0" mnemonicParsing="false" onAction="#manageProductsOnClick" prefHeight="31.0" prefWidth="192.0" style="-fx-background-color: #2196F3;" text="Manage Products" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="viewOrders" layoutX="538.0" layoutY="184.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="192.0" style="-fx-background-color: #2196F3;" text="View Customer Orders" textFill="WHITE">
+      <Button fx:id="viewOrders" layoutX="538.0" layoutY="184.0" mnemonicParsing="false" onAction="#viewOrdersOnClick" prefHeight="31.0" prefWidth="192.0" style="-fx-background-color: #2196F3;" text="View Customer Orders" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>

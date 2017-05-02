@@ -124,7 +124,7 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="saveChangesButton" disable="true" layoutX="145.0" layoutY="554.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="116.0" style="-fx-background-color: #2196F3;" text="Save Changes" textFill="WHITE">
+      <Button fx:id="saveChangesButton" disable="true" layoutX="145.0" layoutY="554.0" mnemonicParsing="false" onAction="#saveChangesButtonOnClick" prefHeight="31.0" prefWidth="116.0" style="-fx-background-color: #2196F3;" text="Save Changes" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
@@ -139,12 +139,12 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="editEmployeeButton" layoutX="482.0" layoutY="108.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #2196F3;" text="Edit" textFill="WHITE">
+      <Button fx:id="editEmployeeButton" layoutX="482.0" layoutY="108.0" mnemonicParsing="false" onAction="#editEmployeeButtonOnClick" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #2196F3;" text="Edit" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="deleteEmployeeButton" layoutX="566.0" layoutY="108.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="70.0" style="-fx-background-color: #d33030;" text="Delete" textFill="WHITE">
+      <Button fx:id="deleteEmployeeButton" layoutX="566.0" layoutY="108.0" mnemonicParsing="false" onAction="#deleteEmployeeButtonOnClick" prefHeight="31.0" prefWidth="70.0" style="-fx-background-color: #d33030;" text="Delete" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>

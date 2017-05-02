@@ -147,15 +147,55 @@ public class LoginController {
                             adminStage.setScene(adminScene);
                             adminStage.setTitle("Customer Panel");
                             adminStage.show();
-                            CustomerController controller = loader.<CustomerController>getController();
+                            
+                           //AdminController controller = loader.<AdminController>getController();
                             //controller.adminNode = this.adminNode;
+                            //controller.sessionUser = this.sessionUser;
+                            
+                           CustomerController controller = loader.<CustomerController>getController();
+                           // controller.adminNode = this.adminNode;
                             controller.sessionUser = this.sessionUser;
-
+                            //System.out.println("LoginC"+sessionUser);
                             
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                    } 
+                    		}
+                             
+                    break;
+                case "Transporter":
+                    userType="Transporter";
+                    if (isValidCredentials(userType, userName, password, "Email")) {
+                        try {
+                            sessionUser = userName;
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/Transporter.fxml"));
+                            Parent adminParent = FXMLLoader.load(getClass().getResource("/views/Transporter.fxml"));
+                            Scene adminScene = new Scene(adminParent);
+                            Stage adminStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                            //adminNode = (Node) event.getSource();
+
+                            adminStage.hide();
+                            adminStage.setScene(adminScene);
+                            adminStage.setTitle("Customer Panel");
+                            adminStage.show();
+                            
+                           //AdminController controller = loader.<AdminController>getController();
+                            //controller.adminNode = this.adminNode;
+                            //controller.sessionUser = this.sessionUser;
+                            
+                           CustomerController controller = loader.<CustomerController>getController();
+                           // controller.adminNode = this.adminNode;
+                            controller.sessionUser = this.sessionUser;
+                            //System.out.println("LoginC"+sessionUser);
+                            
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    		}
+                    
+                    
+                    
+                    
             }
         }
     }

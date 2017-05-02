@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="526.0" prefWidth="803.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ManageProductsController">
+   <children>
+      <Separator layoutX="34.0" layoutY="73.0" prefHeight="2.0" prefWidth="856.0" />
+      <Separator layoutX="392.0" layoutY="71.0" orientation="VERTICAL" prefHeight="533.0" prefWidth="15.0" />
+      <Button fx:id="logout" layoutX="622.0" layoutY="29.0" mnemonicParsing="false" onAction="#setLogoutButtonClick" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #d33030;" text="Logout" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="backToManagerButton" layoutX="408.0" layoutY="29.0" mnemonicParsing="false" onAction="#backToManagerButtonOnClick" prefHeight="31.0" prefWidth="180.0" style="-fx-background-color: #2196F3;" text="Back to Manager Panel" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Text fill="#f57c00" layoutX="29.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Products" wrappingWidth="367.1962890625">
+         <font>
+            <Font name="Tahoma" size="29.0" />
+         </font>
+      </Text>
+      <Text fill="#f57c00" layoutX="29.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Details of the Product: ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <GridPane layoutX="35.0" layoutY="121.0" prefHeight="248.0" prefWidth="322.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="55.0" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="56.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="94.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="99.0" minHeight="10.0" prefHeight="49.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="116.0" minHeight="10.0" prefHeight="62.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Id" wrappingWidth="121.78369140625">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="productId" disable="true" GridPane.columnIndex="1" />
+            <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Quantity" wrappingWidth="127.208984375" GridPane.rowIndex="1">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Status" GridPane.rowIndex="3">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="productStatus" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Description" wrappingWidth="164.26123046875" GridPane.rowIndex="4">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="productDescription" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Name" GridPane.rowIndex="2">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="productName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Spinner fx:id="productQuantity" prefHeight="25.0" prefWidth="160.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <valueFactory>
+                <SpinnerValueFactory.IntegerSpinnerValueFactory max="100" min="1" />
+            </valueFactory>
+            </Spinner>
+         </children>
+      </GridPane>
+      <Button fx:id="saveProductButton" layoutX="286.0" layoutY="399.0" mnemonicParsing="false" onAction="#saveProductButtonOnClick" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #2196F3;" text="Save" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="cancelButton" layoutX="49.0" layoutY="399.0" mnemonicParsing="false" onAction="#cancelButtonOnClick" prefHeight="31.0" prefWidth="70.0" style="-fx-background-color: #d33030;" text="Cancel" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="saveChangesButton" disable="true" layoutX="146.0" layoutY="399.0" mnemonicParsing="false" onAction="#saveChangesButtonOnClick" prefHeight="31.0" prefWidth="116.0" style="-fx-background-color: #2196F3;" text="Save Changes" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Text fill="#f57c00" layoutX="407.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Products In Warehouse:" wrappingWidth="297.0000033825636">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Button fx:id="refreshProductsButton" layoutX="682.0" layoutY="118.0" mnemonicParsing="false" style="-fx-background-color: #49a495;" text="Refresh" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="editProductsButton" layoutX="492.0" layoutY="118.0" mnemonicParsing="false" onAction="#editProductsButtonOnClick" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #2196F3;" text="Edit" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="deleteProductsButton" layoutX="589.0" layoutY="118.0" mnemonicParsing="false" onAction="#deleteProductsButtonOnClick" prefHeight="31.0" prefWidth="70.0" style="-fx-background-color: #d33030;" text="Delete" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="viewProductsButton" layoutX="407.0" layoutY="118.0" mnemonicParsing="false" onAction="#viewProductsButtonOnClick" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #2196F3;" text="View" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <TableView fx:id="productDetailsTable" layoutX="412.0" layoutY="156.0" prefHeight="345.0" prefWidth="424.0">
+         <columns>
+            <TableColumn fx:id="productIdDetail" prefWidth="75.0" text="Product ID" />
+            <TableColumn fx:id="productQuantityDetail" prefWidth="109.0" text="Product Quantity" />
+            <TableColumn fx:id="productNameDetail" prefWidth="96.0" text="Product Name" />
+            <TableColumn fx:id="productStatusDetail" prefWidth="105.0" text="Product Status" />
+         </columns>
+      </TableView>
+      <Label fx:id="productLabel" layoutX="46.0" layoutY="362.0" prefHeight="27.0" prefWidth="300.0" textFill="#4d973d">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -195,7 +195,7 @@ public class ManageEmployeeController implements Initializable {
                 employeeLabel.setText("Employee Saved to Database");
                 setAllFieldClearOnClick();
                 setAllFieldDisableOnClick();
-                //refreshButtonOnClick(event);
+                refreshEmployeeButtonOnClick(event);
             }
             connection.close();
             statement.close();
@@ -306,6 +306,50 @@ public class ManageEmployeeController implements Initializable {
     }
 
     @FXML
+    private void editEmployeeButtonOnClick(Event event) {
+
+        try {
+
+            if (ifRowSelected()) {
+                getRowDetails();
+                setAllFieldEnableOnClick();
+                saveEmployeeButton.setDisable(true);
+                saveChangesButton.setDisable(false);
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(AddAdminController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void deleteEmployeeButtonOnClick(Event event) {
+        if (ifRowSelected()) {
+            try {
+                TablePosition pos = employeeDetailsTable.getSelectionModel().getSelectedCells().get(0);
+                int row = pos.getRow();
+                EmployeePOJO item = employeeDetailsTable.getItems().get(row);
+                int employeeID = item.getEmployeeID();
+                //System.out.println("admin id: " + adminID);
+                connection = conn.connect();
+                statement = connection.createStatement();
+                
+                String sql = "delete from employee where employeeId=" + employeeID + ";";
+                statement.executeUpdate(sql);
+                refreshEmployeeButtonOnClick(event);
+                NotificationType notificationType = NotificationType.INFORMATION;
+            TrayNotification tray = new TrayNotification();
+            tray.setTitle("Attention!!!");
+            tray.setMessage("Employee Deleted from System!");
+            tray.setNotificationType(notificationType);
+            tray.showAndDismiss(Duration.millis(3000));
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+
+        }
+    }
+    @FXML
     private void viewEmployeeButtonOnClick(Event event) {
         if (ifRowSelected()) {
             getRowDetails();
@@ -327,6 +371,30 @@ public class ManageEmployeeController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    @FXML
+    private void saveChangesButtonOnClick(Event event) {
+        if (!checkFieldsEmpty()) {
+            try {
+                connection = conn.connect();
+                statement = connection.createStatement();
+
+                statement.executeUpdate("update employee set employeeFirstName ='" + employeeFName.getText() + "',employeeLastName='" + employeeLName.getText() + "',employeeUserName ='" + employeeUserName.getText() + "',employeePassword ='" + employeePassword.getText() + "',employeeEmailId ='" + employeeEmailId.getText() + "',employeeCity='" + employeeCity.getText() +"',employeeDepartment='" + employeeDeptBox.getValue() +"',employeeManager='" + employeeManagerBox.getValue() + "' where employeeId=" + employeeId.getText() + ";");
+                //System.out.println("Your Details have been updated successfully!");
+                employeeLabel.setTextFill(Color.web("green"));
+                employeeLabel.setText("Details updated successfully!");
+                setAllFieldDisableOnClick();
+                setAllFieldClearOnClick();
+                saveEmployeeButton.setDisable(false);
+                refreshEmployeeButtonOnClick(event);
+                saveChangesButton.setDisable(true);
+                connection.close();
+                statement.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+
     }
     
     private ObservableList<EmployeePOJO> data;

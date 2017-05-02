@@ -64,7 +64,6 @@
                                           <String fx:value="Customer" />
                                           <String fx:value="Transporter" />
                                           <String fx:value="Warehouse Manager" />
-                                          <String fx:value="Supplier" />
                                       </FXCollections>
                                   </items>
                               </ChoiceBox>
