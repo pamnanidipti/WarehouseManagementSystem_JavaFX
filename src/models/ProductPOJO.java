@@ -8,10 +8,6 @@ package models;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-/**
- *
- * @author Pamnani
- */
 public class ProductPOJO {
 
     public SimpleIntegerProperty productID = new SimpleIntegerProperty();

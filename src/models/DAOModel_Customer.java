@@ -24,11 +24,11 @@ public class DAOModel_Customer {
         try {
 
             Statement st = conn.createStatement();
-            String sql = "CREATE TABLE customer (customerId int NOT NULL AUTO_INCREMENT, customerFirstName VARCHAR(255), customerLastName VARCHAR(255),customerUserName VARCHAR(255), customerPassword VARCHAR(255),customerEmailId VARCHAR(255),customerAddress VARCHAR(255), PRIMARY KEY(customerId))";
-           // String sqlManager = "CREATE TABLE manager (managerId int NOT NULL AUTO_INCREMENT, managerFirstName VARCHAR(255), managerLastName VARCHAR(255),managerUserName VARCHAR(255), managerPassword VARCHAR(255),managerEmailId VARCHAR(255),managerCity VARCHAR(255),managerDepartment VARCHAR(255), PRIMARY KEY(managerId))";
+           // String sql = "CREATE TABLE customer (customerId int NOT NULL AUTO_INCREMENT, customerFirstName VARCHAR(255), customerLastName VARCHAR(255),customerUserName VARCHAR(255), customerPassword VARCHAR(255),customerEmailId VARCHAR(255),customerAddress VARCHAR(255), PRIMARY KEY(customerId))";
+            String sqlManager = "CREATE TABLE manager (managerId int NOT NULL AUTO_INCREMENT, managerFirstName VARCHAR(255), managerLastName VARCHAR(255),managerUserName VARCHAR(255), managerPassword VARCHAR(255),managerEmailId VARCHAR(255),managerCity VARCHAR(255),managerDepartment VARCHAR(255), PRIMARY KEY(managerId))";
            // String sqlEmployee = "CREATE TABLE employee (employeeId int NOT NULL AUTO_INCREMENT, employeeFirstName VARCHAR(255), employeeLastName VARCHAR(255),employeeUserName VARCHAR(255), employeePassword VARCHAR(255),employeeEmailId VARCHAR(255),employeeCity VARCHAR(255),employeeDepartment VARCHAR(255),employeeManager VARCHAR(255), PRIMARY KEY(employeeId))";
-            st.executeUpdate(sql);
-            //st.executeUpdate(sqlManager);
+            //st.executeUpdate(sql);
+            st.executeUpdate(sqlManager);
             //st.executeUpdate(sqlEmployee);
             System.out.println("Created customer table in given database...");
         } catch (Exception e) {

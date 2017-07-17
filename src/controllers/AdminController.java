@@ -1,5 +1,3 @@
-
-
 package controllers;
 
 import java.io.IOException;
@@ -142,25 +140,25 @@ public class AdminController {
             if (isEdit) {
                 connection = conn.connect();
                 statement = connection.createStatement();
-                
-                if(AdmintfFirstName.getText().equals("") || AdmintfLastName.getText().equals("") || AdmintfEmailID.getText().equals("")
-                        || AdminpfPassword.getText().equals("") || AdmintfUserName.getText().equals("") || AdmintfCity.getText().equals("")){
+
+                if (AdmintfFirstName.getText().equals("") || AdmintfLastName.getText().equals("") || AdmintfEmailID.getText().equals("")
+                        || AdminpfPassword.getText().equals("") || AdmintfUserName.getText().equals("") || AdmintfCity.getText().equals("")) {
                     //save.setDisable(true);
                     adminLabel.setTextFill(Color.web("red"));
                     adminLabel.setText("Please enter all values!");
-                    
+
                     return;
                 }
-               
+
                 // System.out.println("Count: "+count);
                 statement.executeUpdate("update admin set adminFirstName ='" + AdmintfFirstName.getText() + "',adminLastName='" + AdmintfLastName.getText() + "',adminUserName ='" + AdmintfUserName.getText() + "',adminPassword ='" + AdminpfPassword.getText() + "',adminEmailId ='" + AdmintfEmailID.getText() + "',adminCity='" + AdmintfCity.getText() + "' where adminId=" + AdmintfID.getText() + ";");
                 //System.out.println("Your Details have been updated successfully!");
                 adminLabel.setTextFill(Color.web("green"));
-                    adminLabel.setText("Details updated successfully!");
+                adminLabel.setText("Details updated successfully!");
                 setAllFieldDisableOnClick();
                 connection.close();
                 statement.close();
-                
+
             }
 
         } catch (Exception e) {
@@ -188,18 +186,18 @@ public class AdminController {
      }*/
 
     @FXML
-    private void setLogoutButtonClick(Event event) throws IOException{
-        
+    private void setLogoutButtonClick(Event event) throws IOException {
+
         FXMLLoader fxload = new FXMLLoader();
         fxload.setLocation(getClass().getResource("/application/Login.fxml"));
         fxload.load();
         Parent parent = fxload.getRoot();
-        ((Node)event.getSource()).getScene().getWindow().hide();
+        ((Node) event.getSource()).getScene().getWindow().hide();
         Stage stage = new Stage();
         stage.setScene(new Scene(parent));
         stage.setTitle("Login Page - Warehouse Management System");
         stage.show();
-        
+
 //        FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/Login.fxml"));
 //                            Parent adminParent = FXMLLoader.load(getClass().getResource("/application/Login.fxml"));
 //                            Scene adminScene = new Scene(adminParent);
@@ -211,7 +209,7 @@ public class AdminController {
 //                            adminStage.setTitle("Login Page - Warehouse Management System");
 //                            adminStage.show();
     }
-    
+
     @FXML
     private void setAdminAddAdminClick(Event event) throws IOException {
 //        try{
@@ -219,17 +217,18 @@ public class AdminController {
 //        }catch(Exception e){
 //            e.printStackTrace();
 //        }
-        
+
         FXMLLoader fxload = new FXMLLoader();
         fxload.setLocation(getClass().getResource("/views/AddAdmin.fxml"));
         fxload.load();
         Parent parent = fxload.getRoot();
-        ((Node)event.getSource()).getScene().getWindow().hide();
+        ((Node) event.getSource()).getScene().getWindow().hide();
         Stage stage = new Stage();
         stage.setScene(new Scene(parent));
         stage.setTitle("Add New Admin Screen");
         stage.show();
     }
+
     @FXML
     private void setAdminwarehouseEmployeepanel(ActionEvent event) throws IOException {
 //        try{
@@ -244,38 +243,29 @@ public class AdminController {
         Parent parent = fxload.getRoot();
         //System.out.println("employee parent: "+parent.toString());
         //adminNode.getScene().getWindow().hide();
-         //((Stage)event.getSource()).close();
+        //((Stage)event.getSource()).close();
         Stage stage = new Stage();
         stage.setScene(new Scene(parent));
         stage.setTitle("Admin - Warehouse Employee Panel");
         stage.show();
-        
+
     }
+
     @FXML
     private void setAdminwarehouseManagerpanel(ActionEvent event) throws IOException {
-//        try{
-//            replaceSceneContent("/views/Admin_warehouseManager.fxml");
-//        }catch(Exception e){
-//            e.printStackTrace();
-//        }
-        //((Node)(event.getSource())).getScene().getWindow().hide();
         FXMLLoader fxload = new FXMLLoader();
-        
-        
-        fxload.setLocation(getClass().getResource("/views/Admin_warehouseManager.fxml"));
+        fxload.setLocation(getClass().getResource("/views/Admin_ManageManager.fxml"));
         fxload.load();
         Parent parent = fxload.getRoot();
-        //System.out.println("manager parent:"+parent.toString());
-        //adminNode.getScene().getWindow().hide();
-        //((Stage)event.getSource()).close();
+        ((Node) event.getSource()).getScene().getWindow().hide();
         Stage stage = new Stage();
         stage.setScene(new Scene(parent));
         
         stage.setTitle("Admin - Warehouse Manager Panel");
         stage.show();
-      //  ((Node)(event.getSource())).getScene().getWindow().hide();
+        //  ((Node)(event.getSource())).getScene().getWindow().hide();
     }
-    
+
     @FXML
     private void setAdminCustomerPanelClick(Event event) throws IOException {
 
@@ -284,20 +274,17 @@ public class AdminController {
 //        }catch(Exception e){
 //            e.printStackTrace();
 //        }
-        
         FXMLLoader fxload = new FXMLLoader();
         fxload.setLocation(getClass().getResource("/views/Admin_Customer.fxml"));
         fxload.load();
         Parent parent = fxload.getRoot();
-        ((Node)event.getSource()).getScene().getWindow().hide();
+        ((Node) event.getSource()).getScene().getWindow().hide();
         Stage stage = new Stage();
         stage.setScene(new Scene(parent));
         stage.setTitle("Admin - Customer Panel");
         stage.show();
     }
-    
-    
-    
+
 //    private Parent replaceSceneContent(String fxml) throws Exception {
 //        Parent page = (Parent) FXMLLoader.load(getClass().getResource(fxml), null, new JavaFXBuilderFactory());
 //        Scene scene = stage.getScene();
@@ -313,4 +300,3 @@ public class AdminController {
 //        return page;
 //    }
 }
-

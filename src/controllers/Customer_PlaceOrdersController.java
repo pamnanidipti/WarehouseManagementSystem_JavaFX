@@ -418,7 +418,7 @@ public class Customer_PlaceOrdersController implements Initializable{
                     else {
                 //save.setDisable(false);
             	
-                String sqlQuery = "insert into orders (customerName,customerId,customerEmailId,orderId,customerAddress,productId,productDescription,productName,productQuantity )" + "values ('" + OrdertfName.getText() + "' , '" + OrdertfCustomerId.getText() + "','" + OrdertfCustomerEmailId.getText() + "','" + OrdertfId.getText() + "','" + OrdertfCustomerAddress.getText() + "','" + OrdertfProductId.getText() + "','" + OrdertfProductDescription.getText() + "','" + OrdertfProductName.getText() + "', '" + OrdertfProductQuantity.getText() + "')";
+                String sqlQuery = "insert into orders (customerName,customerId,customerEmailId,orderId,customerAddress,productId,productDescription,productName,productQuantity,orderStatus )" + "values ('" + OrdertfName.getText() + "' , '" + OrdertfCustomerId.getText() + "','" + OrdertfCustomerEmailId.getText() + "','" + OrdertfId.getText() + "','" + OrdertfCustomerAddress.getText() + "','" + OrdertfProductId.getText() + "','" + OrdertfProductDescription.getText() + "','" + OrdertfProductName.getText() + "', '" + OrdertfProductQuantity.getText() + "', 'New')";
                 
                // System.out.println(sqlQuery);
                 

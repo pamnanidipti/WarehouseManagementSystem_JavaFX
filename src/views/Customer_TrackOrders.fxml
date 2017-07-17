@@ -16,7 +16,7 @@
          <children>
             <VBox prefHeight="500.0" prefWidth="750.0">
                <children>
-                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0">
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0">
                      <children>
                         <Separator layoutX="9.0" layoutY="52.0" prefHeight="10.0" prefWidth="732.0" />
                         <Text fill="#f57c00" layoutX="7.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Track Orders" wrappingWidth="224.1962890625">
@@ -34,7 +34,7 @@
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <AnchorPane layoutX="3.0" layoutY="62.0" prefHeight="438.0" prefWidth="743.0">
+                        <AnchorPane layoutX="3.0" layoutY="62.0" prefHeight="438.0" prefWidth="811.0">
                            <children>
                               <Text fill="#f57c00" layoutX="6.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="List of all placed orders" wrappingWidth="224.19628500938416">
                                  <font>
@@ -43,7 +43,7 @@
                               </Text>
                            </children>
                         </AnchorPane>
-                        <TableView fx:id="Orderstableview" layoutX="38.0" layoutY="122.0" prefHeight="261.0" prefWidth="638.0">
+                        <TableView fx:id="Orderstableview" layoutX="20.0" layoutY="122.0" prefHeight="261.0" prefWidth="750.0">
                            <columns>
                               <TableColumn fx:id="OrderTableId" prefWidth="64.0" text="OrderID" />
                               <TableColumn fx:id="OrderTableCustomerAddress" prefWidth="119.0" text="Customer Address" />
@@ -51,6 +51,7 @@
                               <TableColumn fx:id="OrderTableProductDescription" prefWidth="154.0" text="ProductDescription" />
                               <TableColumn fx:id="OrderTableProductname" prefWidth="99.0" text="Product Name" />
                               <TableColumn fx:id="OrderTableOrderedQuantity" prefWidth="118.0" text="Ordered Quantity" />
+                              <TableColumn fx:id="orderStatusDetail" prefWidth="118.0" text="Order Status" />
                            </columns>
                         </TableView>
                         <Button fx:id="refreshButton" layoutX="593.0" layoutY="75.0" mnemonicParsing="false" onAction="#refreshButtonOnClick" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #49a495;" text="Refresh" textFill="WHITE">

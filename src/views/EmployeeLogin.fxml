@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="509.0" prefWidth="765.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="controllers.EmployeeController">
+   <children>
+      <Text fill="#f57c00" layoutX="41.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee" wrappingWidth="228.1962890625">
+         <font>
+            <Font name="Tahoma" size="29.0" />
+         </font>
+      </Text>
+      <Button fx:id="logout" layoutX="613.0" layoutY="41.0" mnemonicParsing="false" onAction="#setLogoutButtonClick" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #d33030;" text="Logout" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Separator layoutX="515.0" layoutY="101.0" orientation="VERTICAL" prefHeight="408.0" prefWidth="0.0" />
+      <Text fill="#f57c00" layoutX="34.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Information" wrappingWidth="199.9453125">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Button fx:id="viewSelfDetails" layoutX="304.0" layoutY="101.0" mnemonicParsing="false" onAction="#viewSelfDetailsOnClick" prefHeight="31.0" prefWidth="192.0" style="-fx-background-color: #2196F3;" text="View Self Details" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Separator layoutX="16.0" layoutY="81.0" prefHeight="1.0" prefWidth="745.0" />
+      <Button fx:id="processCustomerOrders" layoutX="548.0" layoutY="101.0" mnemonicParsing="false" onAction="#processCustomerOrdersOnClick" prefHeight="31.0" prefWidth="192.0" style="-fx-background-color: #2196F3;" text="Process Customer Orders" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="warehouseInventory" layoutX="548.0" layoutY="147.0" mnemonicParsing="false" onAction="#warehouseInventoryOnClick" prefHeight="31.0" prefWidth="192.0" style="-fx-background-color: #2196F3;" text="Warehouse Inventory" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <GridPane fx:id="employeeDetailsGrid" layoutX="85.0" layoutY="183.0" prefHeight="244.0" prefWidth="332.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="166.0" minWidth="10.0" prefWidth="97.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="244.0" minWidth="10.0" prefWidth="235.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="33.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="146.0" minHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="140.0" minHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="98.0" minHeight="4.0" prefHeight="39.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="98.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="98.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name :">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name :" GridPane.rowIndex="1">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="ID:" GridPane.rowIndex="2">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" GridPane.rowIndex="3">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="City:" GridPane.rowIndex="4">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Label fx:id="empFnameLabel" prefHeight="35.0" prefWidth="230.0" GridPane.columnIndex="1" />
+            <Label fx:id="empLNameLabel" prefHeight="35.0" prefWidth="230.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="empIDLabel" prefHeight="35.0" prefWidth="230.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="empEmailLabel" prefHeight="35.0" prefWidth="230.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="empCityLabel" prefHeight="35.0" prefWidth="230.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Department:" GridPane.rowIndex="5">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Manager:" GridPane.rowIndex="6">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Label fx:id="empDeptLabel" prefHeight="35.0" prefWidth="230.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label fx:id="empManagerLabel" prefHeight="35.0" prefWidth="230.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+         </children>
+      </GridPane>
+      <Text fx:id="contactAdminLabel" fill="#d30000" layoutX="35.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact the  Manager to make any Changes on your Profile!!" textAlignment="CENTER" wrappingWidth="467.04248046875">
+         <font>
+            <Font name="Monotype Corsiva" size="19.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

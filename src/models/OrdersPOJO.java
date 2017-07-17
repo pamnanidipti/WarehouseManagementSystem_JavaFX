@@ -8,10 +8,6 @@ package models;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-/**
- *
- * @author Pamnani
- */
 public class OrdersPOJO {
     public SimpleIntegerProperty orderId = new SimpleIntegerProperty();
     public SimpleIntegerProperty customerId = new SimpleIntegerProperty();
@@ -20,12 +16,28 @@ public class OrdersPOJO {
     public SimpleStringProperty orderStatus = new SimpleStringProperty();
     public SimpleStringProperty customerName = new SimpleStringProperty();
     public SimpleStringProperty productName = new SimpleStringProperty();
+    public SimpleStringProperty customerEmail = new SimpleStringProperty();
+    public SimpleStringProperty customerAddress = new SimpleStringProperty();
+    public SimpleStringProperty productDescription = new SimpleStringProperty();
     //public SimpleStringProperty employeeName = new SimpleStringProperty();
     //public SimpleStringProperty transporterName = new SimpleStringProperty();
 
     public OrdersPOJO() {
     }
 
+    public String getCustomerEmail() {
+        return customerEmail.getValue();
+    }
+
+    public String getCustomerAddress() {
+        return customerAddress.getValue();
+    }
+
+    public String getProductDescription() {
+        return productDescription.getValue();
+    }
+
+    
     public Integer getOrderId() {
         return orderId.getValue();
     }

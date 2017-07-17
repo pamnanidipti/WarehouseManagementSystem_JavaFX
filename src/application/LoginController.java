@@ -2,6 +2,7 @@ package application;
 
 import controllers.AdminController;
 import controllers.CustomerController;
+import controllers.EmployeeController;
 import controllers.ManagerController;
 import models.*;
 import javafx.event.Event;
@@ -83,8 +84,8 @@ public class LoginController {
                     if (isValidCredentials(userType, userName, password, "Email")) {
                         try {
                             sessionUser = userName;
-                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/Employee.fxml"));
-                            Parent adminParent = FXMLLoader.load(getClass().getResource("/views/Employee.fxml"));
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/EmployeeLogin.fxml"));
+                            Parent adminParent = FXMLLoader.load(getClass().getResource("/views/EmployeeLogin.fxml"));
                             Scene adminScene = new Scene(adminParent);
                             Stage adminStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                             //adminNode = (Node) event.getSource();
@@ -93,7 +94,7 @@ public class LoginController {
                             adminStage.setScene(adminScene);
                             adminStage.setTitle("Employee Panel");
                             adminStage.show();
-                            AdminController controller = loader.<AdminController>getController();
+                            EmployeeController controller = loader.<EmployeeController>getController();
                             //controller.adminNode = this.adminNode;
                             controller.sessionUser = this.sessionUser;
 
@@ -168,15 +169,15 @@ public class LoginController {
                     if (isValidCredentials(userType, userName, password, "Email")) {
                         try {
                             sessionUser = userName;
-                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/Transporter.fxml"));
-                            Parent adminParent = FXMLLoader.load(getClass().getResource("/views/Transporter.fxml"));
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/TransporterLogin.fxml"));
+                            Parent adminParent = FXMLLoader.load(getClass().getResource("/views/TransporterLogin.fxml"));
                             Scene adminScene = new Scene(adminParent);
                             Stage adminStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                             //adminNode = (Node) event.getSource();
 
                             adminStage.hide();
                             adminStage.setScene(adminScene);
-                            adminStage.setTitle("Customer Panel");
+                            adminStage.setTitle("Transporter Panel");
                             adminStage.show();
                             
                            //AdminController controller = loader.<AdminController>getController();

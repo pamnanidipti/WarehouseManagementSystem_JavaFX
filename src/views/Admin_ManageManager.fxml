@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="599.0" prefWidth="887.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Admin_ManageManagerController">
+   <children>
+      <Separator layoutX="24.0" layoutY="63.0" prefHeight="2.0" prefWidth="856.0" />
+      <Separator layoutX="382.0" layoutY="61.0" orientation="VERTICAL" prefHeight="533.0" prefWidth="15.0" />
+      <Button fx:id="logout" layoutX="612.0" layoutY="19.0" mnemonicParsing="false" onAction="#setLogoutButtonClick" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #d33030;" text="Logout" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="backToAdminButton" layoutX="398.0" layoutY="19.0" mnemonicParsing="false" onAction="#backToAdminPanelOnClick" prefHeight="31.0" prefWidth="180.0" style="-fx-background-color: #2196F3;" text="Back to Admin Panel" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Text fill="#f57c00" layoutX="19.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Manager" wrappingWidth="367.1962890625">
+         <font>
+            <Font name="Tahoma" size="29.0" />
+         </font>
+      </Text>
+      <Text fill="#f57c00" layoutX="19.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Details for the Manager: ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <GridPane layoutX="19.0" layoutY="108.0" prefHeight="338.0" prefWidth="337.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="44.0" minHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="56.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="54.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="57.0" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="41.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="41.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Manager First Name">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="ManagerFName" GridPane.columnIndex="1" />
+            <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Manager  Last Name" wrappingWidth="138.66943359375" GridPane.rowIndex="1">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="ManagerLName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Manager  Id" wrappingWidth="121.78369140625" GridPane.rowIndex="2">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="ManagerId" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Manager  Email" wrappingWidth="127.208984375" GridPane.rowIndex="3">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="ManagerEmailId" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Manager  User name" GridPane.rowIndex="5">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="ManagerUserName" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Manager City" wrappingWidth="99.26123046875" GridPane.rowIndex="6">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="ManagerCity" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" GridPane.rowIndex="4">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <PasswordField fx:id="ManagerPassword" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Text fill="#673ab7" strokeType="OUTSIDE" strokeWidth="0.0" text="Manager Department" wrappingWidth="152.44580078125" GridPane.rowIndex="7">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <ChoiceBox fx:id="ManagerDeptBox" prefHeight="25.0" prefWidth="169.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            
+            </ChoiceBox>
+         </children>
+      </GridPane>
+      <Button fx:id="savemanagerButton" layoutX="286.0" layoutY="554.0" mnemonicParsing="false" onAction="#saveManagerButtonOnClick" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #2196F3;" text="Save" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="managerCancelButton" layoutX="49.0" layoutY="554.0" mnemonicParsing="false" onAction="#employeeCancelButtonOnClick" prefHeight="31.0" prefWidth="70.0" style="-fx-background-color: #d33030;" text="Cancel" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="saveChangesButton" disable="true" layoutX="145.0" layoutY="554.0" mnemonicParsing="false" onAction="#saveChangesButtonOnClick" prefHeight="31.0" prefWidth="116.0" style="-fx-background-color: #2196F3;" text="Save Changes" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Text fill="#f57c00" layoutX="397.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manager Details:" wrappingWidth="157.0000033825636">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Button fx:id="refreshManagerButton" layoutX="672.0" layoutY="108.0" mnemonicParsing="false" onAction="#refreshEmployeeButtonOnClick" style="-fx-background-color: #49a495;" text="Refresh" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="editManagerButton" layoutX="482.0" layoutY="108.0" mnemonicParsing="false" onAction="#editManagerButtonOnClick" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #2196F3;" text="Edit" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="deleteManagerButton" layoutX="566.0" layoutY="108.0" mnemonicParsing="false" onAction="#deleteManagerButtonOnClick" prefHeight="31.0" prefWidth="70.0" style="-fx-background-color: #d33030;" text="Delete" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="viewManagerButton" layoutX="397.0" layoutY="108.0" mnemonicParsing="false" onAction="#viewEmployeeButtonOnClick" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #2196F3;" text="View" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <TableView fx:id="managerDetailsTable" layoutX="402.0" layoutY="146.0" prefHeight="345.0" prefWidth="474.0">
+         <columns>
+            <TableColumn fx:id="mngidDetailtable" prefWidth="101.0" text="Manager Id" />
+            <TableColumn fx:id="fnameDetailtable" prefWidth="101.0" text="First Name" />
+            <TableColumn fx:id="lnameDetailtable" prefWidth="122.0" text="Last Name" />
+            <TableColumn fx:id="deptDetailtable" prefWidth="148.0" text="Department" />
+         </columns>
+      </TableView>
+      <Label fx:id="ManagerLabel" layoutX="53.0" layoutY="491.0" prefHeight="27.0" prefWidth="300.0" textFill="#4d973d">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

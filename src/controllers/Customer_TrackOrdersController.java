@@ -95,6 +95,8 @@ public class Customer_TrackOrdersController implements Initializable{
     TableColumn<Customer_TrackOrdersPOJOTable, String> OrderTableProductname;
     @FXML
     TableColumn<Customer_TrackOrdersPOJOTable, Integer>OrderTableOrderedQuantity;
+    @FXML
+    TableColumn<Customer_TrackOrdersPOJOTable, String>orderStatusDetail;
    
        
     private Connector conn = new Connector();
@@ -149,7 +151,7 @@ public class Customer_TrackOrdersController implements Initializable{
 		OrderTableProductDescription.setCellValueFactory(new PropertyValueFactory<Customer_TrackOrdersPOJOTable, String>("ProdDescp"));
 		OrderTableProductname.setCellValueFactory(new PropertyValueFactory<Customer_TrackOrdersPOJOTable, String>("prodName"));
 		OrderTableOrderedQuantity.setCellValueFactory(new PropertyValueFactory<Customer_TrackOrdersPOJOTable, Integer>("pordQuant"));    
-		
+		orderStatusDetail.setCellValueFactory(new PropertyValueFactory<Customer_TrackOrdersPOJOTable, String>("orderStatus"));
 		try {
 	            //buildData();
 	        } catch (Exception e) {
@@ -187,6 +189,7 @@ private String currentUser;
                 cm.ProdDescp.set(rs.getString("productDescription"));
                 cm.prodName.set(rs.getString("productName"));
                 cm.pordQuant.set(rs.getInt("productQuantity"));
+                cm.orderStatus.set(rs.getString("orderStatus"));
                 data.add(cm);
             }
 

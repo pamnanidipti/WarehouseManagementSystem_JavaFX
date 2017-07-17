@@ -12,11 +12,15 @@ public class Customer_TrackOrdersPOJOTable {
 	   public  SimpleStringProperty prodName= new SimpleStringProperty();
 	   public  SimpleIntegerProperty pordQuant = new SimpleIntegerProperty();
 	   
-	   
+	   public  SimpleStringProperty orderStatus= new SimpleStringProperty();
 	   
 	   
 	   public Customer_TrackOrdersPOJOTable() {
 	    }
+
+    public String getOrderStatus() {
+        return orderStatus.getValue();
+    }
 	
 
 	public int getOrdID() {
